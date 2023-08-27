@@ -47,7 +47,11 @@ Additionally, another issue is the difficulty in locating chemicals. Without pre
 ### Solution 💡
 Our web platform is set to revolutionize the management of chemical and consumable resources within our academic setting. Students can effortlessly log their chemical usage, providing real-time updates, while technical officers gain insights into remaining quantities. Our innovative alert system notify officers as quantities approach predefined levels, ensuring timely restocking. Urgent alerts signal excessive consumption, prompting swift action. Additionally, a user-friendly search feature simplify tracking chemicals and their locations. By centralizing labs and streamlining documentation, our platform eliminates paperwork, saving time and offering comprehensive solutions for efficient inventory management.
 
-## Other Sub Topics
+## ER Diagram
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/60e92ee2-bd56-4586-8b91-59c7a9db357c" width=1200 />
+
+## Relational Mapping
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/d49f8212-57be-422b-88bd-599683a1d46c" width=800 />
 
 .....
 
