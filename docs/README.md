@@ -20,9 +20,10 @@ This is a sample image, to show how to add images to your page. To learn more op
  -->
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/19/096, Ekanayake E.M.C.Y.B., [email](mailto:e19096@eng.pdn.ac.lk)
+-  E/19/306, Rajakaruna M.M.P.N., [email](mailto:e19306@eng.pdn.ac.lk)
+-  E/19/405, Thennakoon T.M.R.S., [email](mailto:e19405@eng.pdn.ac.lk)
+-  E/19/495, Thilakarathne A.G.D.C., [email](mailto:e19495@eng.pdn.ac.lk)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -59,7 +60,7 @@ Our web platform is set to revolutionize the management of chemical and consumab
 ### <u>Front End</u>
 
 Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap 
-
+<img src=" https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/3fe16083-365f-4099-826f-6f980284c181" width=60 />
 
 #### React :
 - React is a popular JavaScript library for building user interfaces.
@@ -77,10 +78,15 @@ Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap
 - HTML5 is the latest version of Hypertext Markup Language, used to structure and present content on the web.
 - It introduces new features like semantic elements, multimedia support, and improved forms for enhanced user experiences.
 
+### Bootstrap :
+- Bootstrap is a widely used front-end framework that provides ready-to-use design elements and responsive layouts, streamlining website and application development.
+- It simplifies the creation of visually appealing and adaptable interfaces.
+
 
 ### <u>Back End</u>
 
 Technologies Used: Springboot, Node.js, MySQL
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=60 />
 
 #### Spring Boot :
 - Spring Boot is a Java-based framework that simplifies the process of building production-ready web applications.
