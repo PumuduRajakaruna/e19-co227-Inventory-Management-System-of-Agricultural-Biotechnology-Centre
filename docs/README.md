@@ -60,7 +60,7 @@ Our web platform is set to revolutionize the management of chemical and consumab
 ### <u>Front End</u>
 
 Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap 
-<img src=" https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/3fe16083-365f-4099-826f-6f980284c181" width=60 />
+<img src=" https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/3fe16083-365f-4099-826f-6f980284c181" width=880 />
 
 #### React :
 - React is a popular JavaScript library for building user interfaces.
@@ -86,7 +86,7 @@ Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap
 ### <u>Back End</u>
 
 Technologies Used: Springboot, Node.js, MySQL
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=60 />
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=800 />
 
 #### Spring Boot :
 - Spring Boot is a Java-based framework that simplifies the process of building production-ready web applications.
