@@ -49,10 +49,10 @@ Additionally, another issue is the difficulty in locating chemicals. Without pre
 Our web platform is set to revolutionize the management of chemical and consumable resources within our academic setting. Students can effortlessly log their chemical usage, providing real-time updates, while technical officers gain insights into remaining quantities. Our innovative alert system notify officers as quantities approach predefined levels, ensuring timely restocking. Urgent alerts signal excessive consumption, prompting swift action. Additionally, a user-friendly search feature simplify tracking chemicals and their locations. By centralizing labs and streamlining documentation, our platform eliminates paperwork, saving time and offering comprehensive solutions for efficient inventory management.
 
 ## ER Diagram
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/60e92ee2-bd56-4586-8b91-59c7a9db357c" width=1200 />
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/4a60d079-fe8a-47a9-b017-f1a05be6381a" width=1200 />
 
 ## Relational Mapping
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/d49f8212-57be-422b-88bd-599683a1d46c" width=800 />
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/d67e0eb4-24e0-41fa-8fd7-35f5d8291110" width=800 />
 
 
 ## Tech Stack
@@ -61,7 +61,7 @@ Our web platform is set to revolutionize the management of chemical and consumab
 
 Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap 
 
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/c45114df-491c-4055-92d2-7153f8b45dcd" width=800 />
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/c45114df-491c-4055-92d2-7153f8b45dcd" width=500 />
 
 #### React :
 - React is a popular JavaScript library for building user interfaces.
@@ -88,7 +88,7 @@ Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap
 
 Technologies Used: Springboot, Node.js, MySQL
 
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=800 />
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=500 />
 
 #### Spring Boot :
 - Spring Boot is a Java-based framework that simplifies the process of building production-ready web applications.
