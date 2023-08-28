@@ -9,7 +9,7 @@ title: Inventory Management System of Agricultural Biotechnology Centre
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
+# Inventory Management System of the Agricultural Biotechnology Centre 
 
 ---
 
