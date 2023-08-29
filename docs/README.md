@@ -79,7 +79,7 @@ Technologies Used: React, Javascript, HTML5, TailwindCSS, Bootstrap
 - HTML5 is the latest version of Hypertext Markup Language, used to structure and present content on the web.
 - It introduces new features like semantic elements, multimedia support, and improved forms for enhanced user experiences.
 
-### Bootstrap :
+#### Bootstrap :
 - Bootstrap is a widely used front-end framework that provides ready-to-use design elements and responsive layouts, streamlining website and application development.
 - It simplifies the creation of visually appealing and adaptable interfaces.
 
