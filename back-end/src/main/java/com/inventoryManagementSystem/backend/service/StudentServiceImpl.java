@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
         student.setEmail(studentModel.getEmail());
         student.setFirstName(studentModel.getFirstName());
         student.setLastName(studentModel.getLastName());
-        student.setRole("USER");
+        student.setRole("STUDENT");
         student.setPassword(passwordEncoder.encode(studentModel.getPassword()));
 
         studentRepository.save(student);

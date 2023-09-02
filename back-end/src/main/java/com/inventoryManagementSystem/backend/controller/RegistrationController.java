@@ -21,10 +21,8 @@ public class RegistrationController {
     private StudentService studentService;
     @Autowired
     private AdminService adminService;
-    @Autowired
-    private ApplicationEventPublisher publisher;
 
-    @PostMapping("/registerUser")
+    @PostMapping("/registerStudent")
     public String registerStudent(@RequestBody StudentModel studentModel, final HttpServletRequest request) {
         Student student = studentService.registerStudent(studentModel);
 //        publisher.publishEvent(new RegistrationCompleteEvent(
