@@ -1,10 +1,14 @@
 package com.inventoryManagementSystem.backend.details;
 
 import com.inventoryManagementSystem.backend.entity.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class CustomStudentDetails implements UserDetails {
     private Student student;
@@ -14,7 +18,7 @@ public class CustomStudentDetails implements UserDetails {
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singleton(new SimpleGrantedAuthority(student.getRole()));
     }
 
     @Override
@@ -29,21 +33,21 @@ public class CustomStudentDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
