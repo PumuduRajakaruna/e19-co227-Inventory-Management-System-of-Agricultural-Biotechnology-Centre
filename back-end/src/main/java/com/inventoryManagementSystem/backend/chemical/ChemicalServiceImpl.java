@@ -12,6 +12,8 @@ public class ChemicalServiceImpl implements ChemicalService{
         Chemical chemical = new Chemical();
         chemical.setChemicalName(chemicalModel.getChemicalName());
         chemical.setQuantity(chemicalModel.getQuantity());
+        chemical.setUnitPrice(chemicalModel.getUnitPrice());
+        chemical.setBrand(chemicalModel.getBrand());
         chemical.setReceivedDate(chemicalModel.getReceivedDate());
         chemical.setExpirationDate(chemicalModel.getExpirationDate());
 
