@@ -3,9 +3,9 @@ package com.inventoryManagementSystem.backend.chemical;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -17,5 +17,15 @@ public class ChemicalController {
     public String registerStudent(@RequestBody ChemicalModel chemicalModel, final HttpServletRequest request) {
         Chemical chemical = chemicalService.registerChemical(chemicalModel);
         return "Chemical Added to the Store Successfully";
+    }
+
+    @GetMapping("/getStore")
+    public List<Chemical> getChemicals(){
+        return chemicalService.getChemicals();
+    }
+
+    @GetMapping("/findChemical/{chemicalName}")
+    public Chemical findChemicalByName(@PathVariable("chemicalName") String chemicalName){
+        return chemicalService.findChemicalByName(chemicalName);
     }
 }

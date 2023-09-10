@@ -3,6 +3,10 @@ package com.inventoryManagementSystem.backend.chemical;
 import com.inventoryManagementSystem.backend.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 @Service
 public class ChemicalServiceImpl implements ChemicalService{
     @Autowired
@@ -19,5 +23,22 @@ public class ChemicalServiceImpl implements ChemicalService{
 
         chemicalRepository.save(chemical);
         return chemical;
+    }
+
+    @Override
+    public List<Chemical> getChemicals() {
+            return chemicalRepository.findAll();
+        }
+
+    @Override
+    public Chemical findChemicalByName(String chemicalName) {
+        List<Chemical> chemicalList = chemicalRepository.findAll();
+        for(int i=0; i <= chemicalList.size(); i++ ){
+            if (chemicalName.equals(chemicalList.get(i))) {
+                Chemical requiredChemical = chemicalList.get(i);
+                return requiredChemical;
+            }
+        }
+        return null;
     }
 }

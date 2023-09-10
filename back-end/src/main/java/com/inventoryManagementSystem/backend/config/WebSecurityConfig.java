@@ -21,7 +21,9 @@ public class WebSecurityConfig{
             "/hello",
             "/registerStudent",
             "/registerAdmin",
-            "/updateStore"
+            "/updateStore",
+            "/getStore",
+            "/findChemical/{chemicalName}"
     };
 
     @Bean
