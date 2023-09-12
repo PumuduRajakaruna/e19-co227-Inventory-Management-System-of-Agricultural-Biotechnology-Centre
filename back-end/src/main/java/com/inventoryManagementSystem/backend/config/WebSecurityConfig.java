@@ -23,7 +23,7 @@ public class WebSecurityConfig{
             "/registerAdmin",
             "/updateStore",
             "/getStore",
-            "/findChemical/{chemicalName}"
+            "/findChemical"
     };
 
     @Bean
@@ -52,10 +52,10 @@ public class WebSecurityConfig{
 //
 //        return http.build();
 
-        http                .cors()
+        http    .cors()
                 .and()
                 .csrf()
-               .disable().authorizeRequests()
+                .disable().authorizeRequests()
                 .requestMatchers(WHITE_LIST_URLS)
                 .permitAll()
                 .requestMatchers("/home")

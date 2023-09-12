@@ -13,8 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Pricing', 'Blog'];
 
 function HomeNavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -64,7 +63,8 @@ function HomeNavBar() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              href = "/home"
+              // onClick={handleOpenNavMenu}
               color="inherit"
             >
               <MenuIcon />

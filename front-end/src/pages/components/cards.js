@@ -8,47 +8,44 @@ import Grid from '@mui/material/Grid';
 
 export default function ActionAreaCard() {
   return (
-  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} padding={8}>
 
-
-    <Grid item xs={8}> 
+    <Grid item xs={4}> 
     <Card sx={{ maxWidth: 345 , flexGrow: 1 }}>
-      <CardActionArea>
+      <CardActionArea  href = "#Lab1">
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          alt="image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            FAO Laboratory
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography variant="body2" color="text.secondary"> 
+            Ground Floor
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
     </Grid> 
 
-    <Grid item xs={8}> 
+    <Grid item xs={4}> 
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea  href = "#Lab2">
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          alt="image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            Molecular Biology Laboratory 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            1st Floor
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -56,22 +53,106 @@ export default function ActionAreaCard() {
     </Grid>
 
 
-    <Grid item xs={8}> 
+    <Grid item xs={4}> 
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea  href = "#Lab3">
         <CardMedia
           component="img"
           height="140"
           image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          alt="image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            Micro Biology Laboratory
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            1st Floor
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+
+    <Grid item xs={4}> 
+    <Card sx={{ maxWidth: 345 , flexGrow: 1 }}>
+      <CardActionArea  href = "#Lab1">
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Tissue Culture Laboratory
+          </Typography>
+          <Typography variant="body2" color="text.secondary"> 
+            1st Floor
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid> 
+
+    <Grid item xs={4}> 
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea  href = "#Lab2">
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Expression Laboratory
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            2nd Floor
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+
+
+    <Grid item xs={4}> 
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea  href = "#Lab3">
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            HPLC Room
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            2nd Floor
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </Grid>
+
+    <Grid item xs={4}> 
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea  href = "#Lab3">
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Freezer Room
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Ground Floor
           </Typography>
         </CardContent>
       </CardActionArea>

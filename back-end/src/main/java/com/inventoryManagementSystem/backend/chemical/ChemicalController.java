@@ -24,7 +24,7 @@ public class ChemicalController {
         return chemicalService.getChemicals();
     }
 
-    @GetMapping("/findChemical/{chemicalName}")
+    @GetMapping(path = "/findChemical/{chemicalName}")
     public Chemical findChemicalByName(@PathVariable("chemicalName") String chemicalName){
         return chemicalService.findChemicalByName(chemicalName);
     }
