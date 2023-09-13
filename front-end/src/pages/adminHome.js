@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './components/studentNavBar';
+import NavBar from './components/adminNavBar';
 import Card from './components/cards';
 
 export default function studentHome() {
