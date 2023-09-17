@@ -31,14 +31,15 @@ public class ChemicalServiceImpl implements ChemicalService{
         }
 
     @Override
-    public Chemical findChemicalByName(String chemicalName) {
-        List<Chemical> chemicalList = chemicalRepository.findAll();
-        for(int i=0; i <= chemicalList.size(); i++ ){
-            if (chemicalName.equals(chemicalList.get(i))) {
-                Chemical requiredChemical = chemicalList.get(i);
-                return requiredChemical;
-            }
-        }
-        return null;
+    public List<Chemical> findChemicalByName(String chemicalName) {
+//        List<Chemical> chemicalList = chemicalRepository.findAll();
+//        for(int i=0; i <= chemicalList.size(); i++ ){
+//            if (chemicalName.equals(chemicalList.get(i))) {
+//                Chemical requiredChemical = chemicalList.get(i);
+//                return requiredChemical;
+//            }
+//        }
+
+        return chemicalRepository.findBychemicalName(chemicalName);
     }
 }

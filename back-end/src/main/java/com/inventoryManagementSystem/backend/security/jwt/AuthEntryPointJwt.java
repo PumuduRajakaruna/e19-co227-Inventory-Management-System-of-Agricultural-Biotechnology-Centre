@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.security.jwt;
+package com.inventoryManagementSystem.backend.security.jwt;
 
 import java.io.IOException;
 import java.util.HashMap;

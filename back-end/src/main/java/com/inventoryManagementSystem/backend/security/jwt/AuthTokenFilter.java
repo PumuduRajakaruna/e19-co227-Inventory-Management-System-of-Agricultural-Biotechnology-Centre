@@ -1,8 +1,8 @@
-package com.MedicalClinic.LifeCare.security.jwt;
+package com.inventoryManagementSystem.backend.security.jwt;
 
 import java.io.IOException;
 
-import com.MedicalClinic.LifeCare.security.services.UserDetailsServiceImpl;
+import com.inventoryManagementSystem.backend.security.services.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

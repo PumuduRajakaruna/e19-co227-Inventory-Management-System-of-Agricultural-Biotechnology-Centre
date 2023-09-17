@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ChemicalRepository extends JpaRepository<Chemical,Long> {
 
+    List<Chemical> findBychemicalName(String chemicalName);
 }

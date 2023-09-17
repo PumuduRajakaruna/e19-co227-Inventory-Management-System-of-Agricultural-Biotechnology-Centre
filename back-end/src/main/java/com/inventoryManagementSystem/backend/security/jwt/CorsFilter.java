@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.security.jwt;
+package com.inventoryManagementSystem.backend.security.jwt;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

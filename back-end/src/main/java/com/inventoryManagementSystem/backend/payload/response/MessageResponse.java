@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.payload.response;
+package com.inventoryManagementSystem.backend.payload.response;
 
 public class MessageResponse {
   private String message;

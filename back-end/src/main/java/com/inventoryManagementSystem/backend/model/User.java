@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.models;
+package com.inventoryManagementSystem.backend.model;
 
 import java.util.HashSet;
 import java.util.Set;

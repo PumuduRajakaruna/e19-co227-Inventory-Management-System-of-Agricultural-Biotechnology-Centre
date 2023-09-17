@@ -1,15 +1,16 @@
-package com.MedicalClinic.LifeCare.security.services;
+package com.inventoryManagementSystem.backend.security.services;
 
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import com.inventoryManagementSystem.backend.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.MedicalClinic.LifeCare.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserDetailsImpl implements UserDetails {
@@ -34,6 +35,8 @@ public class UserDetailsImpl implements UserDetails {
     this.password = password;
     this.authorities = authorities;
   }
+
+
 
   public static UserDetailsImpl build(User user) {
     List<GrantedAuthority> authorities = user.getRoles().stream()

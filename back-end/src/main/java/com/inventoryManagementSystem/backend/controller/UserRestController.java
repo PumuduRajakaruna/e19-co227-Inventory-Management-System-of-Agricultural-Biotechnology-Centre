@@ -1,9 +1,9 @@
-package com.MedicalClinic.LifeCare.controllers;
+package com.inventoryManagementSystem.backend.controller;
 
-import com.MedicalClinic.LifeCare.exception.UnauthorizedAccessException;
-import com.MedicalClinic.LifeCare.models.SetNewUsernameEmailPswd;
-import com.MedicalClinic.LifeCare.models.User;
-import com.MedicalClinic.LifeCare.repository.UserRepository;
+import com.inventoryManagementSystem.backend.exception.UnauthorizedAccessException;
+import com.inventoryManagementSystem.backend.model.SetNewUsernameEmailPswd;
+import com.inventoryManagementSystem.backend.model.User;
+import com.inventoryManagementSystem.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;

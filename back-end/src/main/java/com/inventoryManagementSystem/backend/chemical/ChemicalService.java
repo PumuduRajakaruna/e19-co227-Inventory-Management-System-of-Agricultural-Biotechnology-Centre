@@ -7,5 +7,5 @@ public interface ChemicalService {
 
     List<Chemical> getChemicals();
 
-    Chemical findChemicalByName(String chemicalName);
+    List<Chemical> findChemicalByName(String chemicalName);
 }

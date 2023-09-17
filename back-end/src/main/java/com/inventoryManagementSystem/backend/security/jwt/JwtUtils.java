@@ -1,9 +1,9 @@
-package com.MedicalClinic.LifeCare.security.jwt;
+package com.inventoryManagementSystem.backend.security.jwt;
 
 import java.security.Key;
 import java.util.Date;
 
-import com.MedicalClinic.LifeCare.security.services.UserDetailsImpl;
+import com.inventoryManagementSystem.backend.security.services.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

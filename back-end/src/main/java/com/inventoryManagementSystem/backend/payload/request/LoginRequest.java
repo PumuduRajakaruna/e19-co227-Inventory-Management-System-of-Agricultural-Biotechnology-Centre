@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.payload.request;
+package com.inventoryManagementSystem.backend.payload.request;
 
 import jakarta.validation.constraints.NotBlank;
 

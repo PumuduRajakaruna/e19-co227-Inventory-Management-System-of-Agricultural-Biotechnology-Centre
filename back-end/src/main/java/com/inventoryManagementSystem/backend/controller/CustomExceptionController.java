@@ -1,6 +1,7 @@
-package com.MedicalClinic.LifeCare.controllers;
+package com.inventoryManagementSystem.backend.controller;
 
-import com.MedicalClinic.LifeCare.exception.UnauthorizedAccessException;
+
+import com.inventoryManagementSystem.backend.exception.UnauthorizedAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

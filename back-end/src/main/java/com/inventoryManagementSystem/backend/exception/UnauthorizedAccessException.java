@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.exception;
+package com.inventoryManagementSystem.backend.exception;
 
 public class UnauthorizedAccessException extends RuntimeException{
     public UnauthorizedAccessException(String message) {

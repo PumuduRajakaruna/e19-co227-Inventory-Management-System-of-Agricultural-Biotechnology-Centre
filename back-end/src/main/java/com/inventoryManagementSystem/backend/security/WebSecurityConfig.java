@@ -1,7 +1,9 @@
-package com.MedicalClinic.LifeCare.security;
+package com.inventoryManagementSystem.backend.security;
 
-import com.MedicalClinic.LifeCare.security.jwt.CorsFilter;
-import com.MedicalClinic.LifeCare.security.services.UserDetailsServiceImpl;
+import com.inventoryManagementSystem.backend.security.jwt.AuthEntryPointJwt;
+import com.inventoryManagementSystem.backend.security.jwt.AuthTokenFilter;
+import com.inventoryManagementSystem.backend.security.jwt.CorsFilter;
+import com.inventoryManagementSystem.backend.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.MedicalClinic.LifeCare.security.jwt.AuthEntryPointJwt;
-import com.MedicalClinic.LifeCare.security.jwt.AuthTokenFilter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
@@ -83,7 +83,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
 //    http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //  }
   @Autowired
-  CorsFilter corsFilter;
+CorsFilter corsFilter;
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

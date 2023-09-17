@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.models;
+package com.inventoryManagementSystem.backend.model;
 
 public enum ERole {
   ROLE_USER,

@@ -1,12 +1,23 @@
-package com.MedicalClinic.LifeCare.controllers;
+package com.inventoryManagementSystem.backend.controller;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import jakarta.validation.Valid;
+import com.inventoryManagementSystem.backend.model.ERole;
+import com.inventoryManagementSystem.backend.model.Role;
+import com.inventoryManagementSystem.backend.model.User;
+import com.inventoryManagementSystem.backend.payload.request.LoginRequest;
+import com.inventoryManagementSystem.backend.payload.request.SignupRequest;
+import com.inventoryManagementSystem.backend.payload.response.JwtResponse;
+import com.inventoryManagementSystem.backend.payload.response.MessageResponse;
+import com.inventoryManagementSystem.backend.repository.RoleRepository;
+import com.inventoryManagementSystem.backend.repository.UserRepository;
+import com.inventoryManagementSystem.backend.security.jwt.JwtUtils;
+import com.inventoryManagementSystem.backend.security.services.UserDetailsImpl;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,17 +32,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MedicalClinic.LifeCare.models.ERole;
-import com.MedicalClinic.LifeCare.models.Role;
-import com.MedicalClinic.LifeCare.models.User;
-import com.MedicalClinic.LifeCare.payload.request.LoginRequest;
-import com.MedicalClinic.LifeCare.payload.request.SignupRequest;
-import com.MedicalClinic.LifeCare.payload.response.JwtResponse;
-import com.MedicalClinic.LifeCare.payload.response.MessageResponse;
-import com.MedicalClinic.LifeCare.repository.RoleRepository;
-import com.MedicalClinic.LifeCare.repository.UserRepository;
-import com.MedicalClinic.LifeCare.security.jwt.JwtUtils;
-import com.MedicalClinic.LifeCare.security.services.UserDetailsImpl;
 
 @CrossOrigin
 @RestController
@@ -61,12 +61,12 @@ public class AuthController {
     SecurityContextHolder.getContext().setAuthentication(authentication);
     String jwt = jwtUtils.generateJwtToken(authentication);
     
-    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();    
+    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
     List<String> roles = userDetails.getAuthorities().stream()
         .map(item -> item.getAuthority())
         .collect(Collectors.toList());
 
-    return ResponseEntity.ok(new JwtResponse(jwt, 
+    return ResponseEntity.ok(new JwtResponse(jwt,
                          userDetails.getId(),
                          userDetails.getUsername(),
                          userDetails.getEmail(), 
@@ -88,7 +88,7 @@ public class AuthController {
     }
 
     // Create new user's account
-    User user = new User(signUpRequest.getUsername(), 
+    User user = new User(signUpRequest.getUsername(),
                signUpRequest.getEmail(),
                encoder.encode(signUpRequest.getPassword()));
 

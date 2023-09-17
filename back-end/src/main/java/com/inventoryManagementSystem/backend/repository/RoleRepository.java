@@ -1,12 +1,13 @@
-package com.MedicalClinic.LifeCare.repository;
+package com.inventoryManagementSystem.backend.repository;
 
-import java.util.Optional;
-
+import com.inventoryManagementSystem.backend.model.ERole;
+import com.inventoryManagementSystem.backend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.MedicalClinic.LifeCare.models.ERole;
-import com.MedicalClinic.LifeCare.models.Role;
+import java.util.Optional;
+
+
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {

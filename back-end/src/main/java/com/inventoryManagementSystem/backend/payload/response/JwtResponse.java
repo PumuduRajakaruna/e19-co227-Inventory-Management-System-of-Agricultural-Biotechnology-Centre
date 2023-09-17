@@ -1,4 +1,4 @@
-package com.MedicalClinic.LifeCare.payload.response;
+package com.inventoryManagementSystem.backend.payload.response;
 
 import java.util.List;
 
