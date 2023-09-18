@@ -3,7 +3,7 @@ import './App.css';
 import Home from './pages/home';
 import StudentHome from './pages/studentHome';
 import AdminHome from './pages/adminHome';
-import SignUp from './pages/signup/adminSignup';
+import SignUp from './pages/signup/userSignup';
 import Login from './pages/login';
 import AdminRegForm from './pages/profileDetailForms/adminProfDetail';
 import StudentRegForm from './pages/profileDetailForms/studentProfDetails';

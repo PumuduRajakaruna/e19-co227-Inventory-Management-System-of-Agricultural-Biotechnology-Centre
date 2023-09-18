@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import './molecularBio.png';
 
 export default function ActionAreaCard() {
   return (
@@ -101,7 +102,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="./molecularBio.jpg"
           alt="image"
         />
         <CardContent>

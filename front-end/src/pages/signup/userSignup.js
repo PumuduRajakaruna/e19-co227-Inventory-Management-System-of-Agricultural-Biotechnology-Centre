@@ -1,22 +1,38 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaUserCircle } from 'react-icons/fa';
-import SignupAdminService from '../../services/adminSignupService';
 
+import axios from 'axios';
 
 function SignUp() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('User Name:', userName);
     console.log('Password:', password);
     console.log('Email:', email);
+
+    const dataToSend = {
+      username: userName,
+      email: email,
+      password: password,
+    }
+
+    try {
+      console.log(dataToSend)
+      const response = await axios.post('http://localhost:8080/api/v1/auth/user/signup', dataToSend);
+      console.log(response.data); // You can handle the response as needed
+    } catch (error) {
+      console.error(error);
+    }
+
+
   };
 
-//   -----------------------------------------
+  // -----------------------------------------
 
 // const navigate = useNavigate();
 // const [isLoading, setIsLoading] = useState(false);
