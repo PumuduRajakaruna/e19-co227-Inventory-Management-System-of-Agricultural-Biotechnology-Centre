@@ -18,8 +18,8 @@ public class Chemical {
     private long chemId;
 
     private String chemicalName;
-    private long quantity;
-    private long unitPrice;
+    private Long quantity;
+    private Long unitPrice;
     private String brand;
     private String receivedDate;
     private String expirationDate;

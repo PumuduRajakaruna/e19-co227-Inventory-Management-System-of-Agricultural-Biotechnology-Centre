@@ -1,6 +1,6 @@
 package com.inventoryManagementSystem.backend.entity;
 
-import com.inventoryManagementSystem.backend.model.User;
+//import com.inventoryManagementSystem.backend.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class Student {
     private String password;
     private String role;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "uid")
-    private User user;
+//    @OneToOne(cascade = CascadeType.REMOVE)
+//    @JoinColumn(name = "uid")
+//    private User user;
 }

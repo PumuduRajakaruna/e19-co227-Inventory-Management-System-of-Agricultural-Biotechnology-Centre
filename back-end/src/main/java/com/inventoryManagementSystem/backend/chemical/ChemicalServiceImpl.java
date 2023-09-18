@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
+
+import static org.aspectj.bridge.MessageUtil.print;
 
 @Service
 public class ChemicalServiceImpl implements ChemicalService{
@@ -41,5 +44,15 @@ public class ChemicalServiceImpl implements ChemicalService{
 //        }
 
         return chemicalRepository.findBychemicalName(chemicalName);
+    }
+
+    @Override
+    @Transactional
+    public void updateQuantity(Long chemId, Long quantity) {
+        Chemical chemical = chemicalRepository.findById(chemId).orElseThrow(() -> new IllegalStateException("chemical with id "+ chemId+ " does not exist"));
+        Long updateQuantity = chemical.getQuantity() - quantity ;
+        if (quantity != null && chemical.getQuantity() > 0 && updateQuantity > 0){
+            chemical.setQuantity(updateQuantity);
+        }
     }
 }

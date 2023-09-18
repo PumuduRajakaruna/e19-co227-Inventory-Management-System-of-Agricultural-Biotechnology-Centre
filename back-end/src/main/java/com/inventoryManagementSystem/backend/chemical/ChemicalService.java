@@ -8,4 +8,6 @@ public interface ChemicalService {
     List<Chemical> getChemicals();
 
     List<Chemical> findChemicalByName(String chemicalName);
+
+    void updateQuantity(Long chemId, Long quantity);
 }
