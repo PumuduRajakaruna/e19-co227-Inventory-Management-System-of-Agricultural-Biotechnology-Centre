@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import img from './images/UOPlogo.png';
 
 function HomeNavBar() {
   return (
@@ -15,9 +15,9 @@ function HomeNavBar() {
         <Container>
           <Navbar.Brand href="#home">
             <img
-              src="/img/logo.svg"
-              width="30"
-              height="30"
+              src={img}
+              width="40"
+              height="40"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
@@ -25,15 +25,15 @@ function HomeNavBar() {
         </Container>
       </Navbar>
       <br />
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="/">AgBC</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#features">Contact</Nav.Link>
             <Nav.Link href="#pricing">Services</Nav.Link>
           </Nav>
           
           <Col xs="auto">
-            <Button type="submit">Login</Button>
+            <Button type="submit" href="/login">Login</Button>
           </Col>
 
         </Container>

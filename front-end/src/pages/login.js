@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaUserCircle } from 'react-icons/fa'; // Import the profile picture icon
+import axios from 'axios';
 
 function Login() {
   // State variables to store user input
@@ -8,11 +9,24 @@ function Login() {
   const [password, setPassword] = useState('');
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // You can add your login logic here
     console.log('User Name:', userName);
     console.log('Password:', password);
+
+    const dataToSend = {
+      username: userName,
+      password: password,
+    }
+
+    try {
+      console.log(dataToSend)
+      const response = await axios.post('http://localhost:8080/api/v1/auth/all/signin', dataToSend);
+      console.log(response.data); // You can handle the response as needed
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

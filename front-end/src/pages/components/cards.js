@@ -5,7 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import './molecularBio.png';
+import ImgMolecular from './images/molecularBio.png';
+import ImgFAO from './images/FAO.jpg';
+import ImgMicro from './images/Microbiology.jpg';
+import ImgTissue from './images/tissue.jpg';
+import ImgExpression from './images/expression.jpg';
+import ImgHPLC from './images/hplc.jpg';
+import ImgFreezer from './images/freezer.jpg';
+
 
 export default function ActionAreaCard() {
   return (
@@ -17,7 +24,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgFAO}
           alt="image"
         />
         <CardContent>
@@ -38,7 +45,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgMolecular}
           alt="image"
         />
         <CardContent>
@@ -60,12 +67,12 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgMicro}
           alt="image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Micro Biology Laboratory
+            MicroBiology Laboratory
           </Typography>
           <Typography variant="body2" color="text.secondary">
             1st Floor
@@ -81,7 +88,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgTissue}
           alt="image"
         />
         <CardContent>
@@ -102,7 +109,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="./molecularBio.jpg"
+          image={ImgExpression}
           alt="image"
         />
         <CardContent>
@@ -124,7 +131,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgHPLC}
           alt="image"
         />
         <CardContent>
@@ -145,7 +152,7 @@ export default function ActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={ImgFreezer}
           alt="image"
         />
         <CardContent>
