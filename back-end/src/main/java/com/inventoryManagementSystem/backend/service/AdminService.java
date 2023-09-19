@@ -4,5 +4,5 @@ import com.inventoryManagementSystem.backend.entity.Admin;
 import com.inventoryManagementSystem.backend.model.AdminModel;
 
 public interface AdminService {
-    Admin registerAdmin(AdminModel adminModel);
+    Admin registerAdmin(Admin admin);
 }

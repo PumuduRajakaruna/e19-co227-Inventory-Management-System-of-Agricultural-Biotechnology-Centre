@@ -19,11 +19,8 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student registerStudent(StudentModel studentModel) {
         Student student = new Student();
-        student.setEmail(studentModel.getEmail());
         student.setFirstName(studentModel.getFirstName());
         student.setLastName(studentModel.getLastName());
-        student.setRole("STUDENT");
-        student.setPassword(passwordEncoder.encode(studentModel.getPassword()));
 
         studentRepository.save(student);
         return student;

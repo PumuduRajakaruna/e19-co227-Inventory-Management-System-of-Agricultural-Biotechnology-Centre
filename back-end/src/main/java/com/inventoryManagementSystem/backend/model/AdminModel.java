@@ -1,5 +1,8 @@
 package com.inventoryManagementSystem.backend.model;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +13,10 @@ import lombok.NoArgsConstructor;
 public class AdminModel {
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
-    private String matchingPassword;
+//    private String mobileNo;
+
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "uid")
+    private User user;
 
 }

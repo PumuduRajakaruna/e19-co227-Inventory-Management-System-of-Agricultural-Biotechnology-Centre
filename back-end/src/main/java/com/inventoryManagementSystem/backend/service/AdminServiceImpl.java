@@ -16,16 +16,12 @@ public class AdminServiceImpl implements AdminService{
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
-    public Admin registerAdmin(AdminModel adminModel) {
-        Admin admin = new Admin();
-        admin.setEmail(adminModel.getEmail());
-        admin.setFirstName(adminModel.getFirstName());
-        admin.setLastName(adminModel.getLastName());
-        admin.setRole("ADMIN");
-        admin.setPassword(passwordEncoder.encode(adminModel.getPassword()));
+    public Admin registerAdmin(Admin admin) {
+//        Admin admin = new Admin();
+//        admin.setFirstName(adminModel.getFirstName());
+//        admin.setLastName(adminModel.getLastName());
 
-        adminRepository.save(admin);
-        return admin;
+        return adminRepository.save(admin);
     }
 
 }
