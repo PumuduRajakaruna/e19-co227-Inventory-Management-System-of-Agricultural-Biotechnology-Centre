@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, ThemeProvider, createTheme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ImgMolecular from './images/molecularBio.png';
 import ImgFAO from './images/FAO.jpg';
@@ -13,161 +13,89 @@ import ImgExpression from './images/expression.jpg';
 import ImgHPLC from './images/hplc.jpg';
 import ImgFreezer from './images/freezer.jpg';
 
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Arial, sans-serif',
+    h5: {
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+    },
+  },
+  palette: {
+    primary: {
+      main: '#1976D2',
+    },
+    secondary: {
+      main: '#4CAF50',
+    },
+  },
+});
 
 export default function ActionAreaCard() {
   return (
-  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} padding={8}>
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 , flexGrow: 1 }}>
-      <CardActionArea  href = "#Lab1">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgFAO}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            FAO Laboratory
-          </Typography>
-          <Typography variant="body2" color="text.secondary"> 
-            Ground Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid> 
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea  href = "#Lab2">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgMolecular}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Molecular Biology Laboratory 
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            1st Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid>
-
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea  href = "#Lab3">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgMicro}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            MicroBiology Laboratory
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            1st Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid>
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 , flexGrow: 1 }}>
-      <CardActionArea  href = "#Lab1">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgTissue}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Tissue Culture Laboratory
-          </Typography>
-          <Typography variant="body2" color="text.secondary"> 
-            1st Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid> 
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea  href = "#Lab2">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgExpression}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Expression Laboratory
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            2nd Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid>
-
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea  href = "#Lab3">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgHPLC}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            HPLC Room
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            2nd Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid>
-
-    <Grid item xs={4}> 
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea  href = "#Lab3">
-        <CardMedia
-          component="img"
-          height="140"
-          image={ImgFreezer}
-          alt="image"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Freezer Room
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Ground Floor
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    </Grid>
-
-
-  </Grid>
+    <ThemeProvider theme={theme}>
+      <Grid container spacing={2} justifyContent="center">
+        {labData.map((lab, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '2px solid #E0E0E0' }}>
+              <CardActionArea href={`#Lab${index + 1}`}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={lab.image}
+                  alt="Lab Image"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {lab.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {lab.location}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </ThemeProvider>
   );
 }
+
+const labData = [
+  {
+    name: 'FAO Laboratory',
+    location: 'Ground Floor',
+    image: ImgFAO,
+  },
+  {
+    name: 'Molecular Biology Laboratory',
+    location: '1st Floor',
+    image: ImgMolecular,
+  },
+  {
+    name: 'MicroBiology Laboratory',
+    location: '1st Floor',
+    image: ImgMicro,
+  },
+  {
+    name: 'Tissue Culture Laboratory',
+    location: '1st Floor',
+    image: ImgTissue,
+  },
+  {
+    name: 'Expression Laboratory',
+    location: '2nd Floor',
+    image: ImgExpression,
+  },
+  {
+    name: 'HPLC Room',
+    location: '2nd Floor',
+    image: ImgHPLC,
+  },
+  {
+    name: 'Freezer Room',
+    location: 'Ground Floor',
+    image: ImgFreezer,
+  },
+];
