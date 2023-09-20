@@ -4,7 +4,7 @@ import Home from './pages/home';
 import StudentHome from './pages/studentHome';
 import AdminHome from './pages/adminHome';
 import SignUp from './pages/signup/userSignup';
-import Login from './pages/login';
+import Login from './pages/signin/login';
 import AdminRegForm from './pages/profileDetailForms/adminProfDetail';
 import StudentRegForm from './pages/profileDetailForms/studentProfDetails';
 import { BrowserRouter as Router , Route, Routes} from 'react-router-dom';

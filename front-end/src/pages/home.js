@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from './components/HomeNavBar';
 import Img from "./components/images/molecularBio.png";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 
 export default function Home() {
   return (
@@ -14,9 +16,9 @@ export default function Home() {
               Start, switch, or advance your career with more than 2000 courses, Professional Certificates, and degrees from world-class universities. Are you eager to embark on a journey of continuous learning and self-improvement? Look no further! <b>Join LearnEdge</b>🌟
             </p>
             <p>Sign Up as a Student</p>
-            <button type="button" className="btn btn-primary" data-toggle="button" aria-pressed="false" autoComplete="off">
-              Sign Up
-            </button>
+            <Col xs="auto">
+            <Button type="submit" href="/signup">Sign Up</Button>
+            </Col>
           </div>
           <div className="col-md-6">
             <div className="w-full md:w-1/2 flex justify-center items-center">

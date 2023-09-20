@@ -1,167 +1,137 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaUserCircle } from 'react-icons/fa';
+import { Container, Form, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import SignupUserService from './signupUserService';
+import { useNavigate } from 'react-router-dom';
 
-import axios from 'axios';
+function UserSignup() {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-function SignUp() {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [isFormFilled, setIsFormFilled] = useState(false);
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+  const [retypePassword, setRetypePassword] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('User Name:', userName);
-    console.log('Password:', password);
-    console.log('Email:', email);
-
-    const dataToSend = {
-      username: userName,
-      email: email,
-      password: password,
-    }
-
-    try {
-      console.log(dataToSend)
-      const response = await axios.post('http://localhost:8080/api/v1/auth/user/signup', dataToSend);
-      console.log(response.data); // You can handle the response as needed
-    } catch (error) {
-      console.error(error);
-    }
-
-
+  const handleFormChange = (e) => {
+    const form = e.target.form;
+    setIsFormFilled(form.checkValidity());
   };
 
-  // -----------------------------------------
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+    handleFormChange(e);
+  };
 
-// const navigate = useNavigate();
-// const [isLoading, setIsLoading] = useState(false);
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      password: newPassword
+    }));
+    checkPasswordMatch(newPassword, retypePassword);
+  };
 
-// const [isFormFilled, setIsFormFilled] = useState(false);
-// const [formData, setFormData] = useState({
-//   username: '',
-//   email: '',
-//   password: ''
-// });
-// const [retypePassword, setRetypePassword] = useState('');
+  const handleRetypePasswordChange = (e) => {
+    const newRetypePassword = e.target.value;
+    setRetypePassword(newRetypePassword);
+    checkPasswordMatch(formData.password, newRetypePassword);
+  };
 
-// const handleFormChange = (e) => {
-//   const form = e.target.form;
-//   setIsFormFilled(form.checkValidity());
-// };
+  const checkPasswordMatch = (password, retypePassword) => {
+    if (password === retypePassword) {
+      setIsFormFilled(true);
+    } else {
+      setIsFormFilled(false);
+    }
+  };
 
-// const handleInputChange = (e) => {
-//   const { name, value } = e.target;
-//   setFormData((prevData) => ({
-//     ...prevData,
-//     [name]: value
-//   }));
-//   handleFormChange(e);
-// };
+  const signupService = new SignupUserService();
 
-// const handlePasswordChange = (e) => {
-//   const newPassword = e.target.value;
-//   setFormData((prevData) => ({
-//     ...prevData,
-//     password: newPassword
-//   }));
-//   checkPasswordMatch(newPassword, retypePassword);
-// };
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+        setTimeout(async () => {
+        console.log(formData);
+        signupService.handleSignup(formData);
+        setIsLoading(false);
+        navigate("/studentHome");
+        alert("Signup Success!");
+      }, 500);
+    } catch (error) {
+      console.error("Signup failed:", error);
+    }
+  };
 
-// const handleRetypePasswordChange = (e) => {
-//   const newRetypePassword = e.target.value;
-//   setRetypePassword(newRetypePassword);
-//   checkPasswordMatch(formData.password, newRetypePassword);
-// };
-
-// const checkPasswordMatch = (password, retypePassword) => {
-//   if (password === retypePassword) {
-//     setIsFormFilled(true);
-//   } else {
-//     setIsFormFilled(false);
-//   }
-// };
-
-// const signupService = new SignupAdminService();
-
-// const handleSubmit = async () => {
-//   setIsLoading(true);
-//   try {
-//     setTimeout(async () => {
-//       console.log(formData);
-//       const userJSON = sessionStorage.getItem('user');
-//       const user = JSON.parse(userJSON);
-//       signupService.handleSignup(formData, user.accessToken);
-//       setIsLoading(false);
-//       navigate(-1);
-//       alert("Signup Success!");
-//   }, 500);
-//   } catch (error) {
-//     console.error("Signup failed:", error);
-//   }
-// };
-
-// const handleBack = () => {
-//   navigate("/");
-// };
-
+  const handleBack = () => {
+    navigate("/");
+  };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="card" style={{ width: '400px' }}>
-        <div className="card-header d-flex flex-column align-items-center">
-          <FaUserCircle size={64} className="mb-3" />
-          <h3>Sign Up</h3>
+    <>{ (<>
+    <div className='body '>
+      <Container>
+        <div className='d-flex justify-content-center'>
+          <Card className="shadow col-md-4">
+            <Card.Body>
+            <h2 className='d-flex justify-content-center'>
+                <img  alt=''  style={{ width: '100px', height: 'auto' }} className='img-fluid' />
+              </h2>
+              <pre></pre>
+              <section className='section bg-c-light border-top border-bottom'>
+                <div className='container'>
+                  <div className='row'>
+                    <div className='col-md-12'>
+                      <Form>
+                        <Form.Group className="mb-3" controlId="formBasicUsername">
+                          <Form.Label>Username</Form.Label>
+                          <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleInputChange} required />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                          <Form.Label>Email</Form.Label>
+                          <Form.Control type="email" name="email" placeholder="Enter email" onChange={handleInputChange} required />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                          <Form.Label>Password</Form.Label>
+                          <Form.Control type="password" name="password" placeholder="Password" onChange={handlePasswordChange} required />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicRetypePassword">
+                          <Form.Label>Retype Password</Form.Label>
+                          <Form.Control type="password" placeholder="Retype password" onChange={handleRetypePasswordChange} required />
+                        </Form.Group>
+
+                        <div className="d-flex justify-content-between align-items-center mt-3">
+                        <Button variant="primary" type="button" className="btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
+                            Sign up
+                          </Button>
+                          <Button variant="primary" type="button" onClick={handleBack} className="btn-light btn-outline-primary">
+                            Back
+                          </Button>
+                        </div>
+                      </Form>
+                      <pre></pre>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </Card.Body>
+          </Card>
         </div>
-        <div className="card-body">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="userName" className="form-label">
-                User Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="userName"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Sign Up
-            </button>
-          </form>
-        </div>
-      </div>
+      </Container>
     </div>
+    </>)}
+    </>
   );
 }
 
-export default SignUp;
+export default UserSignup;
