@@ -24,4 +24,9 @@ public class AdminServiceImpl implements AdminService{
         return adminRepository.save(admin);
     }
 
+    @Override
+    public boolean existsAdminByUid(Long uid) {
+        return adminRepository.existsByUserId(uid);
+    }
+
 }

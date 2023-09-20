@@ -10,10 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -36,7 +33,7 @@ public class RegistrationController {
 
     @PostMapping("/registerAdmin")
 //    @PreAuthorize("hasRole('ADMIN')")
-    public String registerAdmin(@RequestBody Admin admin, final HttpServletRequest request) {
+    public String registerAdmin(@RequestBody Admin admin) {
         adminService.registerAdmin(admin);
 //        publisher.publishEvent(new RegistrationCompleteEvent(
 //                user,
@@ -44,4 +41,17 @@ public class RegistrationController {
 //        ));
         return "Admin Registered Successfully";
     }
+
+    @GetMapping("admin/existsbyuserid/{uid}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public boolean existsAdminByUid(@PathVariable("uid") Long uid) {
+        return adminService.existsAdminByUid(uid);
+    }
+
+    @GetMapping("user/existsbyuserid/{uid}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public boolean existsUserByUid(@PathVariable("uid") Long uid) {
+        return studentService.existsUserByUid(uid);
+    }
+
 }

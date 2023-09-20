@@ -25,4 +25,10 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.save(student);
         return student;
     }
+
+    @Override
+    public boolean existsUserByUid(Long uid) {
+        return studentRepository.existsByUserId(uid);
+    }
+
 }

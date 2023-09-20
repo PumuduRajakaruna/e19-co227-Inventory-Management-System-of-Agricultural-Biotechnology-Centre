@@ -5,4 +5,6 @@ import com.inventoryManagementSystem.backend.model.AdminModel;
 
 public interface AdminService {
     Admin registerAdmin(Admin admin);
+
+    boolean existsAdminByUid(Long uid);
 }
