@@ -3,6 +3,7 @@ import { Container, Form, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SignupUserService from './signupUserService';
 import { useNavigate } from 'react-router-dom';
+import img from './UOPlogo.png';
 
 function UserSignup() {
   const [isLoading, setIsLoading] = useState(false);
@@ -58,11 +59,11 @@ function UserSignup() {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-        setTimeout(async () => {
+      setTimeout(async () => {
         console.log(formData);
         signupService.handleSignup(formData);
         setIsLoading(false);
-        navigate("/studentHome");
+        navigate("/studentReg");
         alert("Signup Success!");
       }, 500);
     } catch (error) {
@@ -75,14 +76,13 @@ function UserSignup() {
   };
 
   return (
-    <>{ (<>
-    <div className='body '>
+    <div className='body d-flex align-items-center justify-content-center' style={{ minHeight: "100vh" }}>
       <Container>
         <div className='d-flex justify-content-center'>
           <Card className="shadow col-md-4">
             <Card.Body>
-            <h2 className='d-flex justify-content-center'>
-                <img  alt=''  style={{ width: '100px', height: 'auto' }} className='img-fluid' />
+              <h2 className='d-flex justify-content-center'>
+                <img src={img} alt='image' style={{ width: '70px', height: 'auto' }} className='img-fluid' />
               </h2>
               <pre></pre>
               <section className='section bg-c-light border-top border-bottom'>
@@ -111,7 +111,7 @@ function UserSignup() {
                         </Form.Group>
 
                         <div className="d-flex justify-content-between align-items-center mt-3">
-                        <Button variant="primary" type="button" className="btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
+                          <Button variant="primary" type="button" className="btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
                             Sign up
                           </Button>
                           <Button variant="primary" type="button" onClick={handleBack} className="btn-light btn-outline-primary">
@@ -129,8 +129,6 @@ function UserSignup() {
         </div>
       </Container>
     </div>
-    </>)}
-    </>
   );
 }
 

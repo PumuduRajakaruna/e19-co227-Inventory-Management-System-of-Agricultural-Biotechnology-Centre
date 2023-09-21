@@ -8,6 +8,11 @@ import Login from './pages/signin/login';
 import AdminRegForm from './pages/profileDetailForms/adminProfDetail';
 import StudentRegForm from './pages/profileDetailForms/studentProfDetails';
 import { BrowserRouter as Router , Route, Routes} from 'react-router-dom';
+import StudentProfile from './pages/studentProfile';
+import AdminProfile from './pages/adminProfile';
+import StudentProfileSetings from './pages/studentProfileSetings';
+import AddNewAdmin from './pages/addNewAdmin';
+ 
 
 function App() {
   return (
@@ -21,6 +26,10 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/adminReg" element={<AdminRegForm />} />
       <Route path="/studentReg" element={<StudentRegForm />} />
+      <Route path="/studentProfile" element={<StudentProfile />} />
+      <Route path="/adminProfile" element={<AdminProfile />} />
+      <Route path="/studentProfileSetings" element={<StudentProfileSetings />} />
+      <Route path="/addNewAdmin" element={<AddNewAdmin />} />
 
       {/* <Route path="/Student" element={<Student />} />
       <Route path="/Login" element={<Login />} /> */}

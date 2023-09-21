@@ -27,9 +27,8 @@ function HomeNavBar() {
       <br />
           <Navbar.Brand href="/">AgBC</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#features">Dashboard</Nav.Link>
-            <Nav.Link href="/studentProfile">Profile</Nav.Link>
+            <Nav.Link href="/studentHome">Home</Nav.Link>
+            <Nav.Link href="/studentProfileSetings" >Settings</Nav.Link>
           </Nav>
           
           <Col xs="auto">

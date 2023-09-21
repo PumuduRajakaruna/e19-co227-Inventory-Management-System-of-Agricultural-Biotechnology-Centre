@@ -13,7 +13,7 @@ export default function Home() {
           <div className="col-md-6">
             <h1>Inventory Management System Of Agricultural Biotechnology Centre</h1>
             <p className="py-4">
-              Start, switch, or advance your career with more than 2000 courses, Professional Certificates, and degrees from world-class universities. Are you eager to embark on a journey of continuous learning and self-improvement? Look no further! <b>Join LearnEdge</b>🌟
+            The Inventory Management System of the Agricultural Biotechnology Centre serves as a platform that links all the labs and their associated documents concerning chemicals and consumables. This system streamlines paperwork, offering a user-friendly environment that simplifies management tasks. By doing so, it not only saves time but also eliminates the need for hurried searches to locate chemicals.
             </p>
             <p>Sign Up as a Student</p>
             <Col xs="auto">

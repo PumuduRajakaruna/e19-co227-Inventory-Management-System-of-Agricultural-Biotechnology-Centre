@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function ContactForm() {
   // State variables to store user input
@@ -8,6 +10,8 @@ function ContactForm() {
   const [telephone, setTelephone] = useState('');
   const [batch, setBatch] = useState('');
   const [department, setDepartment] = useState('');
+
+  const navigate = useNavigate();
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -18,11 +22,17 @@ function ContactForm() {
     console.log('Telephone:', telephone);
     console.log('Batch:', batch);
     console.log('Department:', department);
+    navigate("/studentHome");
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
-      <div className="card" style={{ width: '400px' }}>
+    <div className="container-fluid vh-100 d-flex flex-column align-items-center">
+      {/* <img
+        src="/path/to/your/profile-image.jpg"
+        alt="Profile Picture"
+        style={{ width: '150px', height: '150px', marginTop: '20px' }}
+      /> */}
+      <div className="card" style={{ width: '400px', marginTop: '20px' }}>
         <div className="card-header">Profile Details</div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
@@ -54,7 +64,7 @@ function ContactForm() {
             </div>
             <div className="mb-3">
               <label htmlFor="telephone" className="form-label">
-                Mobile Number
+                Telephone Number
               </label>
               <input
                 type="tel"
@@ -75,6 +85,7 @@ function ContactForm() {
                 id="batch"
                 value={batch}
                 onChange={(e) => setBatch(e.target.value)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -87,6 +98,7 @@ function ContactForm() {
                 id="department"
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
+                required
               />
             </div>
             <button type="submit" className="btn btn-primary">

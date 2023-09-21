@@ -30,7 +30,8 @@ function HomeNavBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/">Store</Nav.Link>
             <Nav.Link href="#features">Dashboard</Nav.Link>
-            <Nav.Link href="#pricing">Profile</Nav.Link>
+            <Nav.Link href="/addNewAdmin">Add New Admin</Nav.Link>
+            <Nav.Link href="/adminProfile">Profile</Nav.Link>
           </Nav>
           
           <Col xs="auto">
