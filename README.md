@@ -23,6 +23,8 @@ Our web platform is set to revolutionize the management of chemical and consumab
 ## Relational Mapping
 <img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/d67e0eb4-24e0-41fa-8fd7-35f5d8291110" width=800 />
 
+## Control Flow
+<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/abdac06f-01a6-41d1-8be4-01a4053f3f50" width=800 />
 
 ## Tech Stack
 
