@@ -10,7 +10,8 @@ import java.util.List;
 
 
 @RestController
-@Slf4j
+@RequestMapping("/chemical")
+//@CrossOrigin("http://localhost:3000")
 public class ChemicalController {
     @Autowired
     private ChemicalService chemicalService;
@@ -22,7 +23,6 @@ public class ChemicalController {
     }
 
     @GetMapping("/getStore")
-    @PreAuthorize("hasRole('USER')")
     public List<Chemical> getChemicals(){
         return chemicalService.getChemicals();
     }

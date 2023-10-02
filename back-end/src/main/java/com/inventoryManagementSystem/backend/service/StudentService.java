@@ -4,7 +4,7 @@ import com.inventoryManagementSystem.backend.entity.Student;
 import com.inventoryManagementSystem.backend.model.StudentModel;
 
 public interface StudentService {
-    Student registerStudent(StudentModel studentModel);
+    Student registerStudent(Student student);
 
     boolean existsUserByUid(Long uid);
 }

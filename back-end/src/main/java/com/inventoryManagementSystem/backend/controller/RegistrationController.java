@@ -22,8 +22,8 @@ public class RegistrationController {
     private AdminService adminService;
 
     @PostMapping("/registerStudent")
-    public String registerStudent(@RequestBody StudentModel studentModel, final HttpServletRequest request) {
-        Student student = studentService.registerStudent(studentModel);
+    public String registerStudent(@RequestBody Student student) {
+        studentService.registerStudent(student);
 //        publisher.publishEvent(new RegistrationCompleteEvent(
 //                user,
 //                applicationUrl(request)
@@ -43,7 +43,7 @@ public class RegistrationController {
     }
 
     @GetMapping("admin/existsbyuserid/{uid}")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public boolean existsAdminByUid(@PathVariable("uid") Long uid) {
         return adminService.existsAdminByUid(uid);
     }

@@ -13,6 +13,9 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
+    private String batch;
+    private String department;
+    private String mobileNo;
 //    private String email;
 //    @Column(length = 60)
 //    private String password;

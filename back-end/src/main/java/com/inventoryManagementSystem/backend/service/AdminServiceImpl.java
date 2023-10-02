@@ -1,8 +1,8 @@
 package com.inventoryManagementSystem.backend.service;
 
 import com.inventoryManagementSystem.backend.entity.Admin;
-import com.inventoryManagementSystem.backend.model.AdminModel;
 import com.inventoryManagementSystem.backend.repository.AdminRepository;
+import com.inventoryManagementSystem.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl implements AdminService{
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private UserRepository userRepository;
 //    @Autowired
 //    private VerificationTokenRepository verificationTokenRepository;
     @Autowired
