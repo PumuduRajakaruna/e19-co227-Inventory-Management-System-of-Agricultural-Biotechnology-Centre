@@ -12,6 +12,7 @@ import StudentProfile from './pages/studentProfile';
 import AdminProfile from './pages/adminProfile';
 import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
+import ChemStore from './pages/chemicalStore';
  
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route path="/adminProfile" element={<AdminProfile />} />
       <Route path="/studentProfileSetings" element={<StudentProfileSetings />} />
       <Route path="/addNewAdmin" element={<AddNewAdmin />} />
+      <Route path="/store" element={<ChemStore />} />
 
       {/* <Route path="/Student" element={<Student />} />
       <Route path="/Login" element={<Login />} /> */}

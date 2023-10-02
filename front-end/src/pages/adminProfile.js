@@ -8,7 +8,7 @@ function UserProfile() {
     firstName: 'First Name',
     lastName: 'Last Name',
     userName: 'user name',
-    userId: 'id',
+    userId: '27',
     email: 'example@gmail.com'
   };
 

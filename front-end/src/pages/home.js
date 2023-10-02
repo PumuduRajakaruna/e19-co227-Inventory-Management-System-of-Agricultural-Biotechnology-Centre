@@ -30,7 +30,7 @@ export default function Home() {
 
       {/* Footer as a horizontal line at the bottom */}
       <footer className="bg-dark text-light text-center py-2">
-        &copy; Your Website 2023
+        &copy; Inventory Management System - AgBC - 2023
       </footer>
     </div>
   );

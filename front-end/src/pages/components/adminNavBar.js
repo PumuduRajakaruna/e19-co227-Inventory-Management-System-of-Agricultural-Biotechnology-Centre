@@ -28,7 +28,7 @@ function HomeNavBar() {
           <Navbar.Brand href="/">AgBC</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/">Store</Nav.Link>
+            <Nav.Link href="/store">Store</Nav.Link>
             <Nav.Link href="#features">Dashboard</Nav.Link>
             <Nav.Link href="/addNewAdmin">Add New Admin</Nav.Link>
             <Nav.Link href="/adminProfile">Profile</Nav.Link>
