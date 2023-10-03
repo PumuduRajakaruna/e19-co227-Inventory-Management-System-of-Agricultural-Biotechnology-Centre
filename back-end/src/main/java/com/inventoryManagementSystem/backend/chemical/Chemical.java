@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Chemical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long chemId;
+    private Long chemId;
 
     private String chemicalName;
     private Long quantity;

@@ -55,4 +55,9 @@ public class ChemicalServiceImpl implements ChemicalService{
             chemical.setQuantity(updateQuantity);
         }
     }
+
+    @Override
+    public Chemical getChemicalById(Long id) {
+        return chemicalRepository.getChemicalById(id);
+    }
 }

@@ -34,10 +34,15 @@ public class ChemicalController {
     }
 
     @PutMapping(path = "/updateQuantity/{chemicalId}")
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('USER')")
     public void updateStudent(
             @PathVariable("chemicalId") Long chemId,
             @RequestBody Chemical chemical){
         chemicalService.updateQuantity(chemId, chemical.getQuantity());
+    }
+
+    @GetMapping(path = "/getChemicalById/{chemId}")
+    public Chemical getChemicalById(@PathVariable("chemId") Long chemId){
+        return chemicalService.getChemicalById(chemId);
     }
 }
