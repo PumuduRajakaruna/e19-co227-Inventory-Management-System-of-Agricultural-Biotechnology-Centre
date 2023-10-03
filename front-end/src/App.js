@@ -13,6 +13,7 @@ import AdminProfile from './pages/adminProfile';
 import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
 import ChemStore from './pages/chemicalStore';
+import AddChemical from './pages/addNewChemical';
  
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/studentProfileSetings" element={<StudentProfileSetings />} />
       <Route path="/addNewAdmin" element={<AddNewAdmin />} />
       <Route path="/store" element={<ChemStore />} />
+      <Route path="/store/addChemical" element={<AddChemical />} />
 
       {/* <Route path="/Student" element={<Student />} />
       <Route path="/Login" element={<Login />} /> */}

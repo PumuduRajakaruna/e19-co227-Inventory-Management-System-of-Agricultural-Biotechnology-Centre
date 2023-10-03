@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/storeNavBar';
 
 function App() {
   const [data, setData] = useState([]);
@@ -38,8 +39,9 @@ function App() {
   };
 
   return (
+    <div className='main'> <NavBar />
     <div className="container mt-4">
-      <h1>Chemicals in Store</h1>
+      <h1>Chemicals</h1>
       <table className="table">
         <thead>
           <tr>
@@ -75,6 +77,7 @@ function App() {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }
