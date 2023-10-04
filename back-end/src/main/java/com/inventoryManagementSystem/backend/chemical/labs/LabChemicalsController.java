@@ -22,6 +22,11 @@ public class LabChemicalsController {
     public List<LabChemicals> getChemicalsByLabName(@RequestParam String labName){
         return labChemicalService.getChemicalsByLabName(labName);
     }
+    @GetMapping(path = "/getChemicalById/{labId}")
+    public LabChemicals getChemicalById(@PathVariable("labId") Long labId){
+        return labChemicalService.getChemicalById(labId);
+    }
+
 
 }
 
