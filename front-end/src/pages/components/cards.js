@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, ThemeProvider, createTheme } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ImgMolecular from './images/molecularBio.png';
 import ImgFAO from './images/FAO.jpg';
@@ -31,14 +32,52 @@ const theme = createTheme({
   },
 });
 
-export default function ActionAreaCard() {
+const ActionAreaCard = () => {
+  const labData = [
+    {
+      name: 'FAO Laboratory',
+      location: 'Ground Floor',
+      image: ImgFAO,
+    },
+    {
+      name: 'Molecular Biology Laboratory',
+      location: '1st Floor',
+      image: ImgMolecular,
+    },
+    {
+      name: 'MicroBiology Laboratory',
+      location: '1st Floor',
+      image: ImgMicro,
+    },
+    {
+      name: 'Tissue Culture Laboratory',
+      location: '1st Floor',
+      image: ImgTissue,
+    },
+    {
+      name: 'Expression Laboratory',
+      location: '2nd Floor',
+      image: ImgExpression,
+    },
+    {
+      name: 'HPLC Room',
+      location: '2nd Floor',
+      image: ImgHPLC,
+    },
+    {
+      name: 'Freezer Room',
+      location: 'Ground Floor',
+      image: ImgFreezer,
+    },
+  ];
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container spacing={2} justifyContent="center">
         {labData.map((lab, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '2px solid #E0E0E0' }}>
-              <CardActionArea href={`#Lab${index + 1}`}>
+            <Link to={`/labs/${lab.name.toLowerCase().replace(/\s+/g, '')}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '2px solid #E0E0E0' }}>
                 <CardMedia
                   component="img"
                   height="140"
@@ -53,49 +92,13 @@ export default function ActionAreaCard() {
                     {lab.location}
                   </Typography>
                 </CardContent>
-              </CardActionArea>
-            </Card>
+              </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>
     </ThemeProvider>
   );
-}
+};
 
-const labData = [
-  {
-    name: 'FAO Laboratory',
-    location: 'Ground Floor',
-    image: ImgFAO,
-  },
-  {
-    name: 'Molecular Biology Laboratory',
-    location: '1st Floor',
-    image: ImgMolecular,
-  },
-  {
-    name: 'MicroBiology Laboratory',
-    location: '1st Floor',
-    image: ImgMicro,
-  },
-  {
-    name: 'Tissue Culture Laboratory',
-    location: '1st Floor',
-    image: ImgTissue,
-  },
-  {
-    name: 'Expression Laboratory',
-    location: '2nd Floor',
-    image: ImgExpression,
-  },
-  {
-    name: 'HPLC Room',
-    location: '2nd Floor',
-    image: ImgHPLC,
-  },
-  {
-    name: 'Freezer Room',
-    location: 'Ground Floor',
-    image: ImgFreezer,
-  },
-];
+export default ActionAreaCard;
