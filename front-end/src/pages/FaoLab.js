@@ -37,7 +37,7 @@ const ChemicalTable = () => {
           {labChemicals.map((labChemical) => (
             <tr key={labChemical.id}>
               <td>{labChemical.chemical.chemicalName}</td>
-              <td>{labChemical.chemical.quantity}</td>
+              <td>{labChemical.quantity}</td>
               <td>{labChemical.chemical.unitPrice}</td>
               <td>{labChemical.chemical.brand}</td>
               <td>{labChemical.chemical.receivedDate}</td>

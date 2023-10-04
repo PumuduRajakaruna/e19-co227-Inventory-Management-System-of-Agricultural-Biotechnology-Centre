@@ -1,4 +1,3 @@
-// UpdateQuantityForm.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -13,7 +12,9 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     expirationDate: '',
   });
   const [updateQuantity, setUpdateQuantity] = useState('');
+  const [labName, setLabName] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const labNames = ['FAO', 'Molecular', 'Micro', 'Tissue Culture', 'Expression', 'HPLC', 'Freezer'];
 
   useEffect(() => {
     // Fetch existing data for the chemical using the chemId
@@ -29,6 +30,10 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
 
   const handleChange = (e) => {
     setUpdateQuantity(e.target.value);
+  };
+
+  const handleLabChange = (e) => {
+    setLabName(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -57,6 +62,23 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
           setShowAlert(false);
           onClose();
         }, 2000);
+
+        // Make a new API request to add a chemical with the updated quantity and lab name
+        const newChemicalData = {
+          labName: labName,
+          quantity: updateQuantity,
+          chemical: {
+            chemId: chemId,
+          },
+        };
+
+        axios.post('http://localhost:8080/chemical/labs/addChemical', newChemicalData)
+          .then((response) => {
+            console.log('Chemical added to the lab:', response.data);
+          })
+          .catch((error) => {
+            console.error('Error adding chemical to the lab:', error);
+          });
       })
       .catch((error) => {
         console.error('Error updating quantity:', error);
@@ -78,8 +100,23 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
               onChange={handleChange}
             />
           </Form.Group>
-          <div className="mt-3"> {/* Add space above buttons */}
-            <Button variant="primary" type="submit" className="mr-2"> {/* Add space between buttons */}
+          <Form.Group controlId="labName">
+            <Form.Label>Lab Name:</Form.Label>
+            <Form.Control
+              as="select"
+              value={labName}
+              onChange={handleLabChange}
+            >
+              <option value="" disabled>Select a lab</option>
+              {labNames.map((lab) => (
+                <option key={lab} value={lab}>
+                  {lab}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <div className="mt-3">
+            <Button variant="primary" type="submit" className="mr-2">
               Update
             </Button>
             <Button variant="secondary" onClick={onClose}>
@@ -89,7 +126,6 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        {/* Show an alert after the update */}
         {showAlert && (
           <div className="alert alert-success" role="alert">
             Quantity updated successfully!
