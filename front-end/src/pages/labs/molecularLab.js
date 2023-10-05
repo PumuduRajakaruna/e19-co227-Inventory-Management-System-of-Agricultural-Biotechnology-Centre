@@ -114,6 +114,7 @@ const ChemicalTable = () => {
 
   return (
     <div>
+      <div className="container mt-4">
       <h2>Lab Chemicals Table</h2>
       <table className="table">
         <thead>
@@ -166,7 +167,7 @@ const ChemicalTable = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            
+
           {/* Show an alert after the update */}
           {showAlert && (
             <div className="alert alert-success" role="alert">
@@ -186,6 +187,7 @@ const ChemicalTable = () => {
 
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
   );
 };

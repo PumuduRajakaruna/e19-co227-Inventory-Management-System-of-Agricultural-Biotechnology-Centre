@@ -8,7 +8,7 @@ const ChemicalTable = () => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const labName = 'FAO'; // Set the lab name directly
+  const labName = 'Tissue Culture'; // Set the lab name directly
 
   useEffect(() => {
     const fetchData = async () => {
@@ -167,7 +167,7 @@ const ChemicalTable = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            
+
           {/* Show an alert after the update */}
           {showAlert && (
             <div className="alert alert-success" role="alert">

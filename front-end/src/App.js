@@ -16,6 +16,8 @@ import ChemStore from './pages/chemicalStore';
 import AddChemical from './pages/addNewChemical';
 import FAOLab from './pages/labs/FaoLab';
 import Molecular from './pages/labs/molecularLab';
+import Micro from './pages/labs/microLab';
+import Tissue from './pages/labs/tissueCultureLab';
 
  
 
@@ -37,8 +39,11 @@ function App() {
       <Route path="/addNewAdmin" element={<AddNewAdmin />} />
       <Route path="/store" element={<ChemStore />} />
       <Route path="/store/addChemical" element={<AddChemical />} />
+
       <Route path="/labs/faolaboratory" element={<FAOLab />} />
-      <Route path="/labs/molecularbiologylaboratory" element={<Molecular />} />
+      <Route path="/labs/molecularbiologylaboratory" element={<Molecular />} />  
+      <Route path="/labs/microbiologylaboratory" element={<Micro />} />  
+      <Route path="/labs/tissueculturelaboratory" element={<Tissue />} />
 
 
 
