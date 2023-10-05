@@ -12,8 +12,12 @@ import StudentProfile from './pages/studentProfile';
 import AdminProfile from './pages/adminProfile';
 import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
-import ChemStore from './pages/chemicalStore';
+import ChemStore from './pages/store/chemicalStore';
 import AddChemical from './pages/addNewChemical';
+import ConStore from './pages/store/consumableStore';
+import WelcomeStore from './pages/store/welcomeStore';
+
+
 import FAOLab from './pages/labs/FaoLab';
 import Molecular from './pages/labs/molecularLab';
 import Micro from './pages/labs/microLab';
@@ -37,8 +41,10 @@ function App() {
       <Route path="/adminProfile" element={<AdminProfile />} />
       <Route path="/studentProfileSetings" element={<StudentProfileSetings />} />
       <Route path="/addNewAdmin" element={<AddNewAdmin />} />
-      <Route path="/store" element={<ChemStore />} />
+      <Route path="/store/chemical" element={<ChemStore />} />
+      <Route path="/store/consumable" element={<ConStore />} />
       <Route path="/store/addChemical" element={<AddChemical />} />
+      <Route path="/store" element={<WelcomeStore />} />
 
       <Route path="/labs/faolaboratory" element={<FAOLab />} />
       <Route path="/labs/molecularbiologylaboratory" element={<Molecular />} />  
