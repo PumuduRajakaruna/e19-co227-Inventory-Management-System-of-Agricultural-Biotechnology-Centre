@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChemicalModel {
+public class ConsumableModel {
     private String chemicalName;
     private Long quantity;
     private Long unitPrice;

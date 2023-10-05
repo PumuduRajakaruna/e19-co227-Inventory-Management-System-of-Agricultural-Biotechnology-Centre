@@ -3,7 +3,7 @@ package com.inventoryManagementSystem.backend.chemical;
 import java.util.List;
 
 public interface ChemicalService {
-    Chemical registerChemical(ChemicalModel chemicalModel);
+    Chemical registerChemical(ConsumableModel chemicalModel);
 
     List<Chemical> getChemicals();
 

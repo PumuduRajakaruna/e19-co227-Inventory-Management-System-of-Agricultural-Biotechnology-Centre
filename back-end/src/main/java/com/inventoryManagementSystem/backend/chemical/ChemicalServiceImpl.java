@@ -1,12 +1,10 @@
 package com.inventoryManagementSystem.backend.chemical;
 
-import com.inventoryManagementSystem.backend.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.aspectj.bridge.MessageUtil.print;
 
@@ -15,7 +13,7 @@ public class ChemicalServiceImpl implements ChemicalService{
     @Autowired
     private ChemicalRepository chemicalRepository;
     @Override
-    public Chemical registerChemical(ChemicalModel chemicalModel) {
+    public Chemical registerChemical(ConsumableModel chemicalModel) {
         Chemical chemical = new Chemical();
         chemical.setChemicalName(chemicalModel.getChemicalName());
         chemical.setQuantity(chemicalModel.getQuantity());
