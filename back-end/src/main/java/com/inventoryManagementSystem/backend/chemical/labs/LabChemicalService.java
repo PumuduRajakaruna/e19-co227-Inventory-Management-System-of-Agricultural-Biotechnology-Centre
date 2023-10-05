@@ -9,4 +9,6 @@ public interface LabChemicalService {
     List<LabChemicals> getChemicalsByLabName(String labName);
 
     LabChemicals getChemicalById(Long labId);
+
+    void updateQuantity(Long labId, Long quantity);
 }

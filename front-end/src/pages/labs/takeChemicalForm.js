@@ -12,13 +12,11 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     expirationDate: '',
   });
   const [updateQuantity, setUpdateQuantity] = useState('');
-  const [labName, setLabName] = useState('');
   const [showAlert, setShowAlert] = useState(false);
-  const labNames = ['FAO', 'Molecular', 'Micro', 'Tissue Culture', 'Expression', 'HPLC', 'Freezer'];
 
   useEffect(() => {
     // Fetch existing data for the chemical using the chemId
-    axios.get(`http://localhost:8080/chemical/getChemicalById/${chemId}`)
+    axios.get(`http://localhost:8080/chemical/labs/getChemicalById/${labId}`)
       .then((response) => {
         // Set the existing data when the response is received
         setExistingData(response.data);
@@ -32,10 +30,6 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     setUpdateQuantity(e.target.value);
   };
 
-  const handleLabChange = (e) => {
-    setLabName(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -46,7 +40,7 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     };
 
     // Make the PUT request to update the quantity
-    axios.put(`http://localhost:8080/chemical/updateQuantity/${chemId}`, updatedData)
+    axios.put(`http://localhost:8080/chemical/labs/updateQuantity/${labId}`, updatedData)
       .then((response) => {
         // Log the response for debugging
         console.log('Update response:', response.data);
@@ -63,23 +57,7 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
           onClose();
         }, 2000);
 
-        // Make a new API request to add a chemical with the updated quantity and lab name
-        const newChemicalData = {
-          labName: labName,
-          labQuantity: updateQuantity,
-          chemical: {
-            chemId: chemId,
-          },
-        };
-
-        axios.post('http://localhost:8080/chemical/labs/addChemical', newChemicalData)
-          .then((response) => {
-            console.log('Chemical added to the lab:', response.data);
-          })
-          .catch((error) => {
-            console.error('Error adding chemical to the lab:', error);
-          });
-      })
+       })
       .catch((error) => {
         console.error('Error updating quantity:', error);
       });
@@ -99,21 +77,6 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
               value={updateQuantity}
               onChange={handleChange}
             />
-          </Form.Group>
-          <Form.Group controlId="labName">
-            <Form.Label>Lab Name:</Form.Label>
-            <Form.Control
-              as="select"
-              value={labName}
-              onChange={handleLabChange}
-            >
-              <option value="" disabled>Select a lab</option>
-              {labNames.map((lab) => (
-                <option key={lab} value={lab}>
-                  {lab}
-                </option>
-              ))}
-            </Form.Control>
           </Form.Group>
           <div className="mt-3">
             <Button variant="primary" type="submit" className="mr-2">

@@ -14,8 +14,8 @@ import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
 import ChemStore from './pages/chemicalStore';
 import AddChemical from './pages/addNewChemical';
-import FAOLab from './pages/FaoLab';
-import Molecular from './pages/molecularLab';
+import FAOLab from './pages/labs/FaoLab';
+import Molecular from './pages/labs/molecularLab';
 
  
 

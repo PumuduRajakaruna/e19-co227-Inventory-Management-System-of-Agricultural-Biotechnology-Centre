@@ -15,7 +15,7 @@ public class LabChemicals {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String labName;
-        private Long quantity;
+        private Long labQuantity;
         @ManyToOne
         @JoinColumn(name = "chem_id")
         private Chemical chemical;

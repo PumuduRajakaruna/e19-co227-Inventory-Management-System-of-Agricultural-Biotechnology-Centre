@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const ChemicalTable = () => {
   const [labChemicals, setLabChemicals] = useState([]);
-  const labName = 'FAO'; // Set the lab name directly
+  const labName = 'Micro'; // Set the lab name directly
 
   useEffect(() => {
     const fetchData = async () => {

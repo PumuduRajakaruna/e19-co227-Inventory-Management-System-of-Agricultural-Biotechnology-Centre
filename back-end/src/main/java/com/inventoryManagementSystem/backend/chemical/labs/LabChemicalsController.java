@@ -27,6 +27,12 @@ public class LabChemicalsController {
         return labChemicalService.getChemicalById(labId);
     }
 
-
+    @PutMapping(path = "/updateQuantity/{labId}")
+//    @PreAuthorize("hasRole('USER')")
+    public void updateStudent(
+            @PathVariable("labId") Long labId,
+            @RequestBody LabChemicals labChemicals){
+        labChemicalService.updateQuantity(labId, labChemicals.getLabQuantity());
+    }
 }
 
