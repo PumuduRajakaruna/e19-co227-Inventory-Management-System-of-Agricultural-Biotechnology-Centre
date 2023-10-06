@@ -14,6 +14,7 @@ import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
 import ChemStore from './pages/store/chemicalStore';
 import AddChemical from './pages/addNewChemical';
+import AddConsumable from './pages/addNewConsumable';
 import ConStore from './pages/store/consumableStore';
 import WelcomeStore from './pages/store/welcomeStore';
 
@@ -44,6 +45,7 @@ function App() {
       <Route path="/store/chemical" element={<ChemStore />} />
       <Route path="/store/consumable" element={<ConStore />} />
       <Route path="/store/addChemical" element={<AddChemical />} />
+      <Route path="/store/addConsumable" element={<AddConsumable />} />
       <Route path="/store" element={<WelcomeStore />} />
 
       <Route path="/labs/faolaboratory" element={<FAOLab />} />

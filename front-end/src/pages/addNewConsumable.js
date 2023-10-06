@@ -3,14 +3,13 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
-const ChemicalForm = () => {
+const ConsumableForm = () => {
   const [formData, setFormData] = useState({
-    chemicalName: '',
+    conName: '',
     quantity: '',
     unitPrice: '',
     brand: '',
     receivedDate: '',
-    expirationDate: '',
     thresholdValue: '',
   });
 
@@ -25,14 +24,14 @@ const ChemicalForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/chemical/updateStore', formData);
+      const response = await axios.post('http://localhost:8080/consumable/updateConsumableStore', formData);
 
       // Handle the API response as needed
       console.log(response.data);
       // Show success alert
-      alert('Chemical added successfully');
+      alert('Consumable added successfully');
       // Redirect to the store page
-      navigate('../store/chemical');
+      navigate('../store/consumable');
     } catch (error) {
       // Handle errors
       console.error('Error submitting form:', error);
@@ -44,15 +43,15 @@ const ChemicalForm = () => {
       <div className="card p-4" style={{ width: '400px' }}>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="chemicalName" className="form-label">
-              Chemical Name
+            <label htmlFor="conName" className="form-label">
+              Consumable Name
             </label>
             <input
               type="text"
               className="form-control"
-              id="chemicalName"
-              name="chemicalName"
-              value={formData.chemicalName}
+              id="conName"
+              name="conName"
+              value={formData.conName}
               onChange={handleChange}
             />
           </div>
@@ -114,22 +113,8 @@ const ChemicalForm = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="expirationDate" className="form-label">
-              Expiration Date
-            </label>
-            <input
-              type="date"
-              className="form-control"
-              id="expirationDate"
-              name="expirationDate"
-              value={formData.expirationDate}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="mb-3">
             <label htmlFor="thresholdValue" className="form-label">
-                Threshold Value
+              Threshold Value
             </label>
             <input
               type="text"
@@ -150,4 +135,4 @@ const ChemicalForm = () => {
   );
 };
 
-export default ChemicalForm;
+export default ConsumableForm;

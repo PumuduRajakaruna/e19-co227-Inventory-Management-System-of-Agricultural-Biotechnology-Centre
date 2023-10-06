@@ -73,6 +73,7 @@ const ActionAreaCard = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="container mt-5">
       <Grid container spacing={2} justifyContent="center">
         {labData.map((lab, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
@@ -80,7 +81,7 @@ const ActionAreaCard = () => {
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '2px solid #E0E0E0' }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="150" 
                   image={lab.image}
                   alt="Lab Image"
                 />
@@ -97,6 +98,7 @@ const ActionAreaCard = () => {
           </Grid>
         ))}
       </Grid>
+      </div>
     </ThemeProvider>
   );
 };

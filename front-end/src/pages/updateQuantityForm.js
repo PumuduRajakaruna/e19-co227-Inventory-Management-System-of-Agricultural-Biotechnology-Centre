@@ -10,6 +10,7 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     brand: '',
     receivedDate: '',
     expirationDate: '',
+    thresholdValue: '',
   });
   const [updateQuantity, setUpdateQuantity] = useState('');
   const [labName, setLabName] = useState('');

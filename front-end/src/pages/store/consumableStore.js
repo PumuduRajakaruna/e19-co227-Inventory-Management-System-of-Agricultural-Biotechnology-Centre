@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from '../components/storeNavBar';
+import NavBar from '../components/storeConsumableNavBar';
 import UpdateQuantityForm from '../updateQuantityForm';
 
 function App() {
