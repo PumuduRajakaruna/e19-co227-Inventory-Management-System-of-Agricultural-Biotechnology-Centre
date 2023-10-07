@@ -13,7 +13,7 @@ public class ChemicalServiceImpl implements ChemicalService{
     @Autowired
     private ChemicalRepository chemicalRepository;
     @Override
-    public Chemical registerChemical(ConsumableModel chemicalModel) {
+    public Chemical registerChemical(ChemicalModel chemicalModel) {
         Chemical chemical = new Chemical();
         chemical.setChemicalName(chemicalModel.getChemicalName());
         chemical.setQuantity(chemicalModel.getQuantity());
@@ -21,6 +21,7 @@ public class ChemicalServiceImpl implements ChemicalService{
         chemical.setBrand(chemicalModel.getBrand());
         chemical.setReceivedDate(chemicalModel.getReceivedDate());
         chemical.setExpirationDate(chemicalModel.getExpirationDate());
+        chemical.setThresholdValue(chemicalModel.getThresholdValue());
 
         chemicalRepository.save(chemical);
         return chemical;

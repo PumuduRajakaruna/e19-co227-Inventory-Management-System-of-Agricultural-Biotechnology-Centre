@@ -1,6 +1,5 @@
 package com.inventoryManagementSystem.backend.chemical.labs;
 
-import com.inventoryManagementSystem.backend.chemical.Chemical;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class LabChemicalServiceImpl implements LabChemicalService{
+public class LabChemicalServiceImpl implements LabChemicalService {
     @Autowired
     private LabChemicalRepository labChemicalRepository;
     @Override

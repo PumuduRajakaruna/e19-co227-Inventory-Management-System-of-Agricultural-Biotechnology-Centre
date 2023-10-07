@@ -16,7 +16,7 @@ public class ChemicalController {
     private ChemicalService chemicalService;
     @PostMapping("/updateStore")
 //    @PreAuthorize("hasRole('USER')")
-    public String registerStudent(@RequestBody ConsumableModel chemicalModel, final HttpServletRequest request) {
+    public String registerStudent(@RequestBody ChemicalModel chemicalModel, final HttpServletRequest request) {
         Chemical chemical = chemicalService.registerChemical(chemicalModel);
         return "Chemical Added to the Store Successfully";
     }

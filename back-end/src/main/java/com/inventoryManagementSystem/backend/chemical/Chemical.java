@@ -23,5 +23,6 @@ public class Chemical {
     private String brand;
     private String receivedDate;
     private String expirationDate;
+    private Long thresholdValue;
 
 }

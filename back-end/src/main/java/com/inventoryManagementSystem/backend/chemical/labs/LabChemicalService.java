@@ -1,7 +1,8 @@
 package com.inventoryManagementSystem.backend.chemical.labs;
 
+import com.inventoryManagementSystem.backend.consumable.labs.LabConsumable;
+
 import java.util.List;
-import java.util.Optional;
 
 public interface LabChemicalService {
     void addChemical(LabChemicals labChemical);

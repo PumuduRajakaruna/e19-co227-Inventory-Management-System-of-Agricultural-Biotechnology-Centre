@@ -1,7 +1,5 @@
 package com.inventoryManagementSystem.backend.chemical.labs;
 
-import com.inventoryManagementSystem.backend.chemical.Chemical;
-import com.inventoryManagementSystem.backend.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
