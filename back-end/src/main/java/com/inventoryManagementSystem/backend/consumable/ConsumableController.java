@@ -1,5 +1,6 @@
 package com.inventoryManagementSystem.backend.consumable;
 
+import com.inventoryManagementSystem.backend.chemical.Chemical;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,5 +21,12 @@ public class ConsumableController {
     @GetMapping("/getStore")
     public List<Consumable> getConsumables(){
         return consumableService.getConsumables();
+    }
+    @PutMapping(path = "/updateQuantity/{consumablelId}")
+//    @PreAuthorize("hasRole('USER')")
+    public void updateStudent(
+            @PathVariable("consumablelId") Long conId,
+            @RequestBody Consumable consumable){
+        consumableService.updateQuantity(conId, consumable.getQuantity());
     }
 }
