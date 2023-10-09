@@ -88,10 +88,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>entity</groupId>
-			<artifactId>entity-txn</artifactId>
-			<version>0.1.5</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>entity</groupId>-->
+<!--			<artifactId>entity-txn</artifactId>-->
+<!--			<version>0.1.5</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
