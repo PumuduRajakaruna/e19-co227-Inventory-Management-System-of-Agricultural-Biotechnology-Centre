@@ -15,6 +15,7 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
   const [updateQuantity, setUpdateQuantity] = useState('');
   const [labName, setLabName] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+  const [fetchedQuantity, setFetchedQuantity] = useState(''); // New state variable
   const labNames = ['FAO', 'Molecular', 'Micro', 'Tissue Culture', 'Expression', 'HPLC', 'Freezer'];
 
   useEffect(() => {
@@ -23,9 +24,13 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
       .then((response) => {
         // Set the existing data when the response is received
         setExistingData(response.data);
+        // setFetchedQuantity(response.data.quantity);
+        // console.log('Fetched Quantity:', response.data.quantity);
+        
       })
       .catch((error) => {
         console.error('Error fetching existing data:', error);
+        
       });
   }, [chemId]);
 
@@ -37,33 +42,89 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
     setLabName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
+  //   // Prepare the data for the PUT request
+  //   const updatedData = {
+  //     ...existingData,
+  //     quantity: updateQuantity,
+  //   };
+
+  //   // Make the PUT request to update the quantity
+  //   axios.put(`http://localhost:8080/chemical/updateQuantity/${chemId}`, updatedData)
+  //     .then((response) => {
+  //       // Log the response for debugging
+  //       console.log('Update response:', response.data);
+
+  //       // Call the onUpdateQuantity callback to update the UI or perform additional actions
+  //       onUpdateQuantity();
+
+  //       // Show alert after the update
+  //       setShowAlert(true);
+
+  //       // Close the form after a delay (you can adjust the delay as needed)
+  //       setTimeout(() => {
+  //         setShowAlert(false);
+  //         onClose();
+  //       }, 2000);
+
+  //       // Make a new API request to add a chemical with the updated quantity and lab name
+  //       const newChemicalData = {
+  //         labName: labName,
+  //         labQuantity: updateQuantity,
+  //         chemical: {
+  //           chemId: chemId,
+  //         },
+  //       };
+
+  //       axios.post('http://localhost:8080/chemical/labs/addChemical', newChemicalData)
+  //         .then((response) => {
+  //           console.log('Chemical added to the lab:', response.data);
+  //         })
+  //         .catch((error) => {
+  //           console.error('Error adding chemical to the lab:', error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error updating quantity:', error);
+  //     });
+  // };
+  
+  const handleSubmit = (e) => {
+
+    let newFetchedQuantity; // Declare the variable outside the axios.get block
+
+
+    e.preventDefault();
+    // Fetch the chemical data again to update the fetched quantity
+    axios.get(`http://localhost:8080/chemical/getChemicalById/${chemId}`)
+    .then((response) => {
+      // Set the existing data when the response is received
+      setExistingData(response.data);
+      newFetchedQuantity = response.data.quantity; // Save the fetched quantity
+      setFetchedQuantity(newFetchedQuantity); // Update the state
+      
+    })
+  
     // Prepare the data for the PUT request
     const updatedData = {
       ...existingData,
       quantity: updateQuantity,
     };
-
+  
     // Make the PUT request to update the quantity
     axios.put(`http://localhost:8080/chemical/updateQuantity/${chemId}`, updatedData)
       .then((response) => {
         // Log the response for debugging
         console.log('Update response:', response.data);
-
+  
         // Call the onUpdateQuantity callback to update the UI or perform additional actions
         onUpdateQuantity();
-
+  
         // Show alert after the update
         setShowAlert(true);
-
-        // Close the form after a delay (you can adjust the delay as needed)
-        setTimeout(() => {
-          setShowAlert(false);
-          onClose();
-        }, 2000);
-
+  
         // Make a new API request to add a chemical with the updated quantity and lab name
         const newChemicalData = {
           labName: labName,
@@ -72,10 +133,40 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
             chemId: chemId,
           },
         };
-
+  
         axios.post('http://localhost:8080/chemical/labs/addChemical', newChemicalData)
           .then((response) => {
             console.log('Chemical added to the lab:', response.data);
+  
+            // Check if thresholdValue > quantity
+            if (parseInt(existingData.thresholdValue) > parseInt(newFetchedQuantity-updateQuantity)) {
+              console.log('Threshold Value:',existingData.thresholdValue);
+              console.log('Upadate Quantity:',updateQuantity);
+              console.log('Previouse Quantity:', newFetchedQuantity); // Use the new fetched quantity
+              console.log('After Quantity:', newFetchedQuantity-updateQuantity); // Use the new fetched quantity
+
+              // Create form data
+              const formData = new FormData();
+              formData.append('to', 'e19306@eng.pdn.ac.lk');
+              formData.append('cc', ''); // Add CC recipients if needed
+              formData.append('subject', 'Your Subject');
+              formData.append('body', 'Your email body content');
+  
+              // Make the API request to send an email with form data
+              axios.post('http://localhost:8080/mail/send', formData)
+                .then((emailResponse) => {
+                  console.log('Email sent:', emailResponse.data);
+                })
+                .catch((emailError) => {
+                  console.error('Error sending email:', emailError);
+                });
+            }
+  
+            // Close the form after a delay (you can adjust the delay as needed)
+            setTimeout(() => {
+              setShowAlert(false);
+              onClose();
+            }, 2000);
           })
           .catch((error) => {
             console.error('Error adding chemical to the lab:', error);
@@ -85,7 +176,9 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
         console.error('Error updating quantity:', error);
       });
   };
+  
 
+  
   return (
     <Modal show={true} onHide={onClose}>
       <Modal.Header closeButton>
