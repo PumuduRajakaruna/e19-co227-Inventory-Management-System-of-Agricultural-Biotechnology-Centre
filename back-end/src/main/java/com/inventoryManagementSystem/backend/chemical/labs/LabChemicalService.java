@@ -12,4 +12,6 @@ public interface LabChemicalService {
     LabChemicals getChemicalById(Long labId);
 
     void updateQuantity(Long labId, Long quantity);
+
+    void deleteLabChemical(Long labId);
 }

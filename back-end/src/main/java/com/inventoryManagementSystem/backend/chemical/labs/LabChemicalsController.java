@@ -32,5 +32,9 @@ public class LabChemicalsController {
             @RequestBody LabChemicals labChemicals){
         labChemicalService.updateQuantity(labId, labChemicals.getLabQuantity());
     }
+    @DeleteMapping(path = "/delete/{labId}")
+    public void deleteLabChemical(@PathVariable("labId") Long labId){
+        labChemicalService.deleteLabChemical(labId);
+    }
 }
 

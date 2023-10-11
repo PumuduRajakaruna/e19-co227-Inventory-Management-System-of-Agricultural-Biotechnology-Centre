@@ -48,4 +48,13 @@ public class LabChemicalServiceImpl implements LabChemicalService {
         labChemicalRepository.save(labChemicals);
     }
 
+    @Override
+    public void deleteLabChemical(Long labId) {
+        boolean exists = labChemicalRepository.existsById(labId);
+        if(!exists){
+            throw new IllegalStateException("student id with "+ labId + "does not exist");
+        }
+        labChemicalRepository.deleteById(labId);
+    }
+
 }
