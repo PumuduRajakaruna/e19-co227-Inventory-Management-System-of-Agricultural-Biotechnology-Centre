@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import axios from 'axios';
 
 const ChemicalTable = () => {
   const [labChemicals, setLabChemicals] = useState([]);
@@ -51,16 +52,13 @@ const ChemicalTable = () => {
   const handleUpdateQuantity = async () => {
     try {
       console.log('Before update - Selected Chemical:', selectedChemical);
-
-      // Ensure selectedChemical and its nested properties are not undefined
+  
       if (selectedChemical) {
-        console.log('Update - Selected Chemical:', selectedChemical); // Log selectedChemical for debugging
-
-        // Fetch labId from the labChemical
+        console.log('Update - Selected Chemical:', selectedChemical);
+  
         const labId = selectedChemical.id;
         console.log('labId - Selected Chemical:', labId);
-
-        // Prepare the updated data with the user-provided labQuantity
+  
         const updatedData = {
           labName: labName,
           labQuantity: updateQuantity,
@@ -68,8 +66,7 @@ const ChemicalTable = () => {
             chemId: selectedChemical.chemical.chemId,
           },
         };
-
-        // Make the update request
+  
         const response = await fetch(`http://localhost:8080/chemical/labs/updateQuantity/${labId}`, {
           method: 'PUT',
           headers: {
@@ -77,30 +74,50 @@ const ChemicalTable = () => {
           },
           body: JSON.stringify(updatedData),
         });
-
+  
         if (response.ok) {
-          // Update successful
-          setShowAlert(true);
-
-          // Close the update modal after a delay (adjust the delay as needed)
-          setTimeout(() => {
-            setShowAlert(false);
-            handleCloseUpdateModal();
-          }, 2000);
-
-          // Fetch updated data after the update
-          const fetchData = async () => {
-            try {
-              const response = await fetch(`http://localhost:8080/chemical/labs/getLabChemical?labName=${labName}`);
-              const data = await response.json();
-              console.log(data);
-              setLabChemicals(data);
-            } catch (error) {
-              console.error('Error fetching data:', error);
+          let newFetchedQuantity;
+  
+          // Use axios for the asynchronous GET request
+          try {
+            const axiosResponse = await axios.get(`http://localhost:8080/chemical/labs/getChemicalById/${labId}`);
+            newFetchedQuantity = axiosResponse.data.labQuantity;
+            console.log('newFetchedQuantity:', newFetchedQuantity);
+  
+            if (newFetchedQuantity === 0) {
+              const deleteResponse = await fetch(`http://localhost:8080/chemical/labs/delete/${labId}`, {
+                method: 'DELETE',
+              });
+  
+              if (deleteResponse.ok) {
+                console.log('Delete API called successfully');
+              } else {
+                console.error('Delete API failed');
+              }
             }
-          };
-
-          fetchData();
+  
+            setShowAlert(true);
+  
+            setTimeout(() => {
+              setShowAlert(false);
+              handleCloseUpdateModal();
+            }, 2000);
+  
+            const fetchData = async () => {
+              try {
+                const response = await fetch(`http://localhost:8080/chemical/labs/getLabChemical?labName=${labName}`);
+                const data = await response.json();
+                console.log(data);
+                setLabChemicals(data);
+              } catch (error) {
+                console.error('Error fetching data:', error);
+              }
+            };
+  
+            fetchData();
+          } catch (axiosError) {
+            console.error('Error with axios:', axiosError);
+          }
         } else {
           console.error('Update failed');
         }
@@ -111,7 +128,7 @@ const ChemicalTable = () => {
       console.error('Error updating quantity:', error);
     }
   };
-
+  
   return (
     <div>
       <div className="container mt-4">

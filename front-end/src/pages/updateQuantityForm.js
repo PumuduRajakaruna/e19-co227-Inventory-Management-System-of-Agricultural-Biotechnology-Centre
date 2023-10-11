@@ -146,7 +146,7 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
               console.log('After Quantity:', newFetchedQuantity-updateQuantity); // Use the new fetched quantity
 
               const emailBodyContent = `Chemical Name: ${existingData.chemicalName}
-Quantity: ${newFetchedQuantity-updateQuantity}
+Remaining Quantity: ${newFetchedQuantity-updateQuantity}
 Unit Price: ${existingData.unitPrice}
 Brand: ${existingData.brand}
             
