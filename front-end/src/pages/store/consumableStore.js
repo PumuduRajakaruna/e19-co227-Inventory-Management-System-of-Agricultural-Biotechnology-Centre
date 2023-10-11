@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/storeConsumableNavBar';
-import UpdateQuantityForm from '../updateQuantityForm';
+import UpdateQuantityForm from '../updateQuantityFormConsumable';
 
 function App() {
   const [data, setData] = useState([]);
-  const [selectedChemId, setSelectedChemId] = useState(null);
+  const [selectedConId, setSelectedConId] = useState(null);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   useEffect(() => {
@@ -16,15 +16,15 @@ function App() {
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
-  const handleUpdateQuantity = (chemId) => {
+  const handleUpdateQuantity = (conId) => {
     // Set the selected Consumable ID and show the update form
-    setSelectedChemId(chemId);
+    setSelectedConId(conId);
     setShowUpdateForm(true);
   };
 
   const handleCloseUpdateForm = () => {
     // Reset the selected Consumable ID and hide the update form
-    setSelectedChemId(null);
+    setSelectedConId(null);
     setShowUpdateForm(false);
   };
 
@@ -65,7 +65,7 @@ function App() {
                 <td>
                   <button
                     className="btn btn-primary"
-                    onClick={() => handleUpdateQuantity(item.chemId)}
+                    onClick={() => handleUpdateQuantity(item.conId)}
                   >
                     Update
                   </button>
@@ -79,7 +79,7 @@ function App() {
       {showUpdateForm && (
         <div className="update-form-overlay">
           <UpdateQuantityForm
-            chemId={selectedChemId}
+            conId={selectedConId}
             onClose={handleCloseUpdateForm}
             onUpdateQuantity={handleUpdateQuantitySubmit}
           />
