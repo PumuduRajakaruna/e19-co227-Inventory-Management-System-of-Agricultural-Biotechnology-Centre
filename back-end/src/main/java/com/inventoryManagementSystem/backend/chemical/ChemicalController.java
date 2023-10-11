@@ -34,7 +34,7 @@ public class ChemicalController {
 
     @PutMapping(path = "/updateQuantity/{chemicalId}")
 //    @PreAuthorize("hasRole('USER')")
-    public void updateStudent(
+    public void updateChemical(
             @PathVariable("chemicalId") Long chemId,
             @RequestBody Chemical chemical){
         chemicalService.updateQuantity(chemId, chemical.getQuantity());

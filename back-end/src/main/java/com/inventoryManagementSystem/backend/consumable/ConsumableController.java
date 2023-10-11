@@ -22,11 +22,15 @@ public class ConsumableController {
     public List<Consumable> getConsumables(){
         return consumableService.getConsumables();
     }
-    @PutMapping(path = "/updateQuantity/{consumablelId}")
+    @PutMapping(path = "/updateQuantity/{consumableId}")
 //    @PreAuthorize("hasRole('USER')")
-    public void updateStudent(
-            @PathVariable("consumablelId") Long conId,
+    public void updateConsumable(
+            @PathVariable("consumableId") Long conId,
             @RequestBody Consumable consumable){
         consumableService.updateQuantity(conId, consumable.getQuantity());
+    }
+    @GetMapping(path = "/getConsumableById/{conId}")
+    public Consumable getConsumableById(@PathVariable("conId") Long conId){
+        return consumableService.getConsumableById(conId);
     }
 }

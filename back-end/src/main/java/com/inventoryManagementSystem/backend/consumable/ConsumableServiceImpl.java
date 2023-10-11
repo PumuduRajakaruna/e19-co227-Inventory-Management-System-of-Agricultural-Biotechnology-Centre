@@ -29,4 +29,9 @@ public class ConsumableServiceImpl implements ConsumableService{
             consumable.setQuantity(updateQuantity);
         }
     }
+
+    @Override
+    public Consumable getConsumableById(Long conId) {
+        return consumableRepository.getConsumableById(conId);
+    }
 }
