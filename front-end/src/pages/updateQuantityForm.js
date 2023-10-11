@@ -145,12 +145,20 @@ const UpdateQuantityForm = ({ chemId, onClose, onUpdateQuantity }) => {
               console.log('Previouse Quantity:', newFetchedQuantity); // Use the new fetched quantity
               console.log('After Quantity:', newFetchedQuantity-updateQuantity); // Use the new fetched quantity
 
+              const emailBodyContent = `Chemical Name: ${existingData.chemicalName}
+Quantity: ${newFetchedQuantity-updateQuantity}
+Unit Price: ${existingData.unitPrice}
+Brand: ${existingData.brand}
+            
+Place a new order to avoid inconveniences
+            `;
+
               // Create form data
               const formData = new FormData();
               formData.append('to', 'e19306@eng.pdn.ac.lk');
               formData.append('cc', ''); // Add CC recipients if needed
-              formData.append('subject', 'Your Subject');
-              formData.append('body', 'Your email body content');
+              formData.append('subject', 'Alart! Chemical Ran Out of Stock');
+              formData.append('body', emailBodyContent);
   
               // Make the API request to send an email with form data
               axios.post('http://localhost:8080/mail/send', formData)
