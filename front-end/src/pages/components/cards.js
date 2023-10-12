@@ -74,30 +74,39 @@ const ActionAreaCard = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="container mt-5">
-      <Grid container spacing={2} justifyContent="center">
-        {labData.map((lab, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Link to={`/labs/${lab.name.toLowerCase().replace(/\s+/g, '')}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', border: '2px solid #E0E0E0' }}>
-                <CardMedia
-                  component="img"
-                  height="150" 
-                  image={lab.image}
-                  alt="Lab Image"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {lab.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {lab.location}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Link>
-          </Grid>
-        ))}
-      </Grid>
+        <Grid container spacing={2} justifyContent="center">
+          {labData.map((lab, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Link
+                to={`/labs/${lab.name.toLowerCase().replace(/\s+/g, '')}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    border: '2px solid #E0E0E0',
+                    transition: 'transform 0.3s', // Transition for the transform property
+                    '&:hover': {
+                      transform: 'scale(1.06)', // Scale the card on hover
+                    },
+                  }}
+                >
+                  <CardMedia component="img" height="150" image={lab.image} alt="Lab Image" />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {lab.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {lab.location}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </ThemeProvider>
   );
