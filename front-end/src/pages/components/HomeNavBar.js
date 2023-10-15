@@ -9,7 +9,7 @@ import img from './images/UOPlogo.png';
 function HomeNavBar() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary "  bg="dark" data-bs-theme="dark">
+      <Navbar expand="lg" className="bg-body-tertiary "  bg="dark" data-bs-theme="dark" style={{ height: '80px', marginBottom: '-28px' }}>
         <Container>
         <Navbar className="bg-body-tertiary">
         <Container>
