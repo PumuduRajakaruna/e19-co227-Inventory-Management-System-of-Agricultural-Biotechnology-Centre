@@ -4,6 +4,7 @@ import com.inventoryManagementSystem.backend.entity.Admin;
 import com.inventoryManagementSystem.backend.entity.Student;
 import com.inventoryManagementSystem.backend.model.AdminModel;
 import com.inventoryManagementSystem.backend.model.StudentModel;
+import com.inventoryManagementSystem.backend.model.User;
 import com.inventoryManagementSystem.backend.service.AdminService;
 import com.inventoryManagementSystem.backend.service.StudentService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/api/v1/manager")
+@CrossOrigin("http://localhost:3000")
 public class RegistrationController {
     @Autowired
     private StudentService studentService;

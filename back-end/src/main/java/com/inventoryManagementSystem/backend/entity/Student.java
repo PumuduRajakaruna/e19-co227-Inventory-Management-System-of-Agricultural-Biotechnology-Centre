@@ -21,7 +21,7 @@ public class Student {
 //    private String password;
 //    private String role;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "uid")
     private User user;
 }

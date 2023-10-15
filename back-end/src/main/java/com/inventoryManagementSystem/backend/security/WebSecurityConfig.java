@@ -88,7 +88,7 @@ CorsFilter corsFilter;
         .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth ->
-          auth.requestMatchers("/api/auth/**", "/api/v1/**", "/chemical/**","/consumable/**", "/mail/**").permitAll()
+          auth.requestMatchers("/api/auth/**", "/api/v1/**", "/chemical/**","/consumable/**", "/mail/**","/api/v1/manager/**").permitAll()
               .anyRequest().authenticated()
         );
 

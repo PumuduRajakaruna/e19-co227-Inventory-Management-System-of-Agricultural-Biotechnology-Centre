@@ -22,7 +22,7 @@ public class Admin {
 //    private String password;
 //    private String role;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "uid")
     private User user;
 }

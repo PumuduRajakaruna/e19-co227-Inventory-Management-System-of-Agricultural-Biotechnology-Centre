@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/v1/user")
@@ -34,5 +36,10 @@ public class UserRestController {
             return "user updated !";
         }
         throw new UnauthorizedAccessException("Unauthorized to access patient data");
+    }
+
+    @GetMapping("/getByUsername/{username}")
+    public Optional<User> getByUsername(@PathVariable("username") String username){
+        return userRepository.findByUsername(username);
     }
 }
