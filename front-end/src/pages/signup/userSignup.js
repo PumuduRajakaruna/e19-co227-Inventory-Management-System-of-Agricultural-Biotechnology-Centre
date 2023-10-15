@@ -1,7 +1,8 @@
+// Import necessary dependencies and components
+
 import React, { useState } from 'react';
 import { Container, Form, Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import SignupUserService from './signupUserService';
+import SignupUserService from './signupUserService'; // Make sure the path is correct
 import { useNavigate } from 'react-router-dom';
 import img from './UOPlogo.png';
 
@@ -13,7 +14,7 @@ function UserSignup() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: ''
+    password: '',
   });
   const [retypePassword, setRetypePassword] = useState('');
 
@@ -26,7 +27,7 @@ function UserSignup() {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
     handleFormChange(e);
   };
@@ -35,7 +36,7 @@ function UserSignup() {
     const newPassword = e.target.value;
     setFormData((prevData) => ({
       ...prevData,
-      password: newPassword
+      password: newPassword,
     }));
     checkPasswordMatch(newPassword, retypePassword);
   };
@@ -47,11 +48,7 @@ function UserSignup() {
   };
 
   const checkPasswordMatch = (password, retypePassword) => {
-    if (password === retypePassword) {
-      setIsFormFilled(true);
-    } else {
-      setIsFormFilled(false);
-    }
+    setIsFormFilled(password === retypePassword);
   };
 
   const signupService = new SignupUserService();
@@ -59,30 +56,34 @@ function UserSignup() {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      setTimeout(async () => {
-        console.log(formData);
-        signupService.handleSignup(formData);
-        setIsLoading(false);
-        navigate("/studentReg");
-        alert("Signup Success!");
-      }, 500);
+      // Use await here
+      const responseData = await signupService.handleSignup(formData);
+      setIsLoading(false);
+
+      navigate('/studentReg');
+      alert('Signup Success!');
+
+      sessionStorage.setItem('user', JSON.stringify(formData));
+      console.log('form data:', formData);
+
+      console.log(responseData);
     } catch (error) {
-      console.error("Signup failed:", error);
+      console.error('Signup failed:', error.message);
     }
   };
 
   const handleBack = () => {
-    navigate("/");
+    navigate('/');
   };
 
   return (
-    <div className='body d-flex align-items-center justify-content-center' style={{ minHeight: "100vh" }}>
+    <div className='body d-flex align-items-center justify-content-center' style={{ minHeight: '100vh' }}>
       <Container>
         <div className='d-flex justify-content-center'>
-          <Card className="shadow col-md-4">
+          <Card className='shadow col-md-4'>
             <Card.Body>
               <h2 className='d-flex justify-content-center'>
-                <img src={img} alt='image' style={{ width: '70px', height: 'auto' }} className='img-fluid' />
+                <img src={img} alt='UOP Logo' style={{ width: '70px', height: 'auto' }} className='img-fluid' />
               </h2>
               <pre></pre>
               <section className='section bg-c-light border-top border-bottom'>
@@ -111,8 +112,8 @@ function UserSignup() {
                         </Form.Group>
 
                         <div className="d-flex justify-content-between align-items-center mt-3">
-                          <Button variant="primary" type="button" className="btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
-                            Sign up
+                          <Button variant="primary" type="button" className="btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled || isLoading}>
+                            {isLoading ? 'Signing up...' : 'Sign up'}
                           </Button>
                           <Button variant="primary" type="button" onClick={handleBack} className="btn-light btn-outline-primary">
                             Back
