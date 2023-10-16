@@ -1,9 +1,12 @@
 package com.inventoryManagementSystem.backend.controller;
 
+import com.inventoryManagementSystem.backend.entity.Student;
 import com.inventoryManagementSystem.backend.exception.UnauthorizedAccessException;
 import com.inventoryManagementSystem.backend.model.SetNewUsernameEmailPswd;
 import com.inventoryManagementSystem.backend.model.User;
+import com.inventoryManagementSystem.backend.repository.StudentRepository;
 import com.inventoryManagementSystem.backend.repository.UserRepository;
+import com.inventoryManagementSystem.backend.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,8 @@ import java.util.Optional;
 public class UserRestController {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    StudentService studentService;
 
     @Autowired
     PasswordEncoder encoder;
@@ -42,4 +47,11 @@ public class UserRestController {
     public Optional<User> getByUsername(@PathVariable("username") String username){
         return userRepository.findByUsername(username);
     }
+
+    @GetMapping("/getByUid/{uid}")
+    public Student getStudentByUid(@PathVariable("uid") Long uid){
+        return studentService.getStudentByUid(uid);
+    }
+
+
 }

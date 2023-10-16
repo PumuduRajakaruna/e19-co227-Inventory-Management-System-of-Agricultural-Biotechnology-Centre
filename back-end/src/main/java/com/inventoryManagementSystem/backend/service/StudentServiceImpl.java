@@ -30,5 +30,9 @@ public class StudentServiceImpl implements StudentService {
     public boolean existsUserByUid(Long uid) {
         return studentRepository.existsByUserId(uid);
     }
+    @Override
+    public Student getStudentByUid(Long uid) {
+        return studentRepository.findByUser_Id(uid);
+    }
 
 }

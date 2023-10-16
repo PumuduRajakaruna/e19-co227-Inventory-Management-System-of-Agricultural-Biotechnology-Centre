@@ -55,5 +55,4 @@ public class RegistrationController {
     public boolean existsUserByUid(@PathVariable("uid") Long uid) {
         return studentService.existsUserByUid(uid);
     }
-
 }

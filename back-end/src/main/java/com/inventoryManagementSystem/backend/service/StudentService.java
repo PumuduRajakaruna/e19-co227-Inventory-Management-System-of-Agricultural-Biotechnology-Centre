@@ -7,4 +7,6 @@ public interface StudentService {
     Student registerStudent(Student student);
 
     boolean existsUserByUid(Long uid);
+
+    Student getStudentByUid(Long id);
 }
