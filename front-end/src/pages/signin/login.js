@@ -15,6 +15,9 @@ function Signin() {
     password: ''
   });
 
+  sessionStorage.setItem('user', JSON.stringify(formData));
+  console.log('form data:', formData);
+
   const handleFormChange = (e) => {
     const form = e.target.form;
     const { name, value } = e.target;
