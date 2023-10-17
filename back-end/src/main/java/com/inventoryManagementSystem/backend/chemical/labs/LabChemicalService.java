@@ -14,4 +14,6 @@ public interface LabChemicalService {
     void updateQuantity(Long labId, Long quantity);
 
     void deleteLabChemical(Long labId);
+
+    List<LabChemicals> getChemicalsByName(String chemName);
 }

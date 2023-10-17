@@ -31,4 +31,9 @@ public class AdminServiceImpl implements AdminService{
         return adminRepository.existsByUserId(uid);
     }
 
+    @Override
+    public Admin getAdminByUid(Long uid) {
+        return adminRepository.findByUser_Id(uid);
+    }
+
 }

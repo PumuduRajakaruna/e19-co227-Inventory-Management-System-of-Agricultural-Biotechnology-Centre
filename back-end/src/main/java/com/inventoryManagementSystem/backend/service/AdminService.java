@@ -7,4 +7,6 @@ public interface AdminService {
     Admin registerAdmin(Admin admin);
 
     boolean existsAdminByUid(Long uid);
+
+    Admin getAdminByUid(Long uid);
 }

@@ -9,4 +9,5 @@ import java.util.List;
 public interface LabChemicalRepository extends JpaRepository<LabChemicals,Long> {
 
     List<LabChemicals> findByLabName(String labName);
-}
+
+    List<LabChemicals> findByChemicalChemicalName(String chemName); }

@@ -57,4 +57,9 @@ public class LabChemicalServiceImpl implements LabChemicalService {
         labChemicalRepository.deleteById(labId);
     }
 
+    @Override
+    public List<LabChemicals> getChemicalsByName(String chemName) {
+        return labChemicalRepository.findByChemicalChemicalName(chemName);
+    }
+
 }

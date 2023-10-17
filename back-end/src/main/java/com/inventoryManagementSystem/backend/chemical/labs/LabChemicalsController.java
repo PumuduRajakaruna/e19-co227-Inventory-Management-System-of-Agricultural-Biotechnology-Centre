@@ -36,5 +36,9 @@ public class LabChemicalsController {
     public void deleteLabChemical(@PathVariable("labId") Long labId){
         labChemicalService.deleteLabChemical(labId);
     }
+    @GetMapping(path = "/findLabChemical")
+    public List<LabChemicals> getChemicalsByName(@RequestParam String chemName){
+        return labChemicalService.getChemicalsByName(chemName);
+    }
 }
 
