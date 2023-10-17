@@ -157,7 +157,7 @@ Place a new order to avoid inconveniences
               const formData = new FormData();
               formData.append('to', 'e19306@eng.pdn.ac.lk');
               formData.append('cc', ''); // Add CC recipients if needed
-              formData.append('subject', 'Alart! Chemical Ran Out of Stock');
+              formData.append('subject', 'Alert! Chemical Running Out of Stock');
               formData.append('body', emailBodyContent);
   
               // Make the API request to send an email with form data

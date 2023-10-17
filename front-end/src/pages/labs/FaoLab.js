@@ -95,6 +95,29 @@ const ChemicalTable = () => {
               } else {
                 console.error('Delete API failed');
               }
+
+            //add mailing
+            const emailBodyContent = `Chemical Name: ${selectedChemical.chemical.chemicalName}
+Lab Name: ${labName}
+Brand: ${selectedChemical.chemical.brand}`;
+              
+              const formData = new FormData();
+              formData.append('to', 'e19306@eng.pdn.ac.lk');
+              formData.append('cc', ''); // Add CC recipients if needed
+              formData.append('subject', 'Alert! Upadate Lab Chemical');
+              formData.append('body', emailBodyContent);
+  
+              // Make the API request to send an email with form data
+              axios.post('http://localhost:8080/mail/send', formData)
+                .then((emailResponse) => {
+                  console.log('Chemical Update Email sent:', emailResponse.data);
+                })
+                .catch((emailError) => {
+                  console.error('Error sending email:', emailError);
+                });
+
+
+
             }
 
             setShowAlert(true);

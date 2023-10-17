@@ -6,9 +6,16 @@ function UserProfile() {
   const [userId, setUserId] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const [studentDetails, setStudentDetails] = useState(null);
+  sessionStorage.setItem('id', JSON.stringify(userId));
+
+
+  let username=null;
 
   const storedUser = JSON.parse(sessionStorage.getItem('user'));
-  const username = storedUser.username;
+  if(storedUser.username){
+     username = storedUser.username;
+  }
+  else username = storedUser.newUsername;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +38,7 @@ function UserProfile() {
 
         const studentData = await studentResponse.json();
         setStudentDetails(studentData);
+
       } catch (error) {
         console.error('Failed to fetch data:', error.message);
       }
