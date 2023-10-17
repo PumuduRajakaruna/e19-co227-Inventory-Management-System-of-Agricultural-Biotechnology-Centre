@@ -104,7 +104,7 @@ Brand: ${selectedChemical.chemical.brand}`;
               const formData = new FormData();
               formData.append('to', 'e19306@eng.pdn.ac.lk');
               formData.append('cc', ''); // Add CC recipients if needed
-              formData.append('subject', 'Alert! Upadate Lab Chemical');
+              formData.append('subject', 'Alert! Update Lab Chemical');
               formData.append('body', emailBodyContent);
   
               // Make the API request to send an email with form data

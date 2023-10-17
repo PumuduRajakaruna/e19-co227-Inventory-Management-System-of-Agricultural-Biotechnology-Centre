@@ -90,7 +90,7 @@ function Signin() {
             if (inAdmin.data) {
               navigate("/adminHome");
             } else {
-              navigate("/");
+              navigate("/adminReg");
             }
           }
         } catch (error) {

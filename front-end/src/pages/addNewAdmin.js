@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import logo from './components/images/UOPlogo.png'; // Replace with the path to your logo image
+import { useNavigate } from 'react-router-dom';
 
 function AddAdmin() {
   const [formData, setFormData] = useState({
@@ -17,19 +19,30 @@ function AddAdmin() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here, you can submit the form data to your backend or perform other actions
-    console.log('Form Data:', formData);
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/admin/signup', formData);
+      console.log('Response:', response.data);
+      navigate("/adminHome");
+      // Optionally, you can redirect to another page or perform other actions upon successful submission
+    } catch (error) {
+      console.error('Error submitting data:', error);
+      // Handle errors here
+    }
   };
 
   return (
     <div className="container mt-5">
       <div className="card mx-auto" style={{ maxWidth: '400px' }}>
         <div className="card-header">
-        <div className="text-center mb-4">
-        <img src={logo} alt="Logo" style={{ width: '100px', height: 'auto' }} />
-      </div>
+          <div className="text-center mb-4">
+            <img src={logo} alt="Logo" style={{ width: '100px', height: 'auto' }} />
+          </div>
           <h1 className="text-center">Add New Admin</h1>
         </div>
         <div className="card-body">

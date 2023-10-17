@@ -1,24 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
 function ContactForm() {
-  // State variables to store user input
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [telephone, setTelephone] = useState('');
+  const [userId, setUserId] = useState(null);
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const storedUser = JSON.parse(sessionStorage.getItem('user'));
+  const username = storedUser.username;
+  console.log('username:', username);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch the user ID when the component mounts
+    const fetchUserId = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/api/v1/user/getByUsername/${username}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch user ID');
+        }
+
+        const userData = await response.json();
+        setUserId(userData.id);
+      } catch (error) {
+        console.error('Failed to fetch user ID:', error.message);
+      }
+    };
+
+    fetchUserId();
+  }, [username]);
+
+  console.log('userId:', userId);
+
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can handle the form data here, e.g., send it to a server or perform other actions.
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Telephone:', telephone);
+
+    const apiUrl = 'http://localhost:8080/api/v1/manager/registerAdmin';
+    const requestData = {
+      firstName: firstName,
+      lastName: lastName,
+      user: {
+        id: userId,
+      },
+    };
+
+    console.log('Request Payload:', JSON.stringify(requestData));
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to register admin');
+      }
+
+      const responseData = await response.json();
+      console.log('admin registration successful:', responseData);
+      navigate('/adminHome');
+    } catch (error) {
+      console.error('admin registration failed:', error.message);
+      navigate('/adminHome');
+    }
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
-      <div className="card" style={{ width: '400px' }}> {/* Set the width of the card */}
+    <div className="container-fluid vh-100 d-flex flex-column align-items-center">
+      <div className="card" style={{ width: '400px', marginTop: '20px' }}>
         <div className="card-header">Profile Details</div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
@@ -45,19 +100,6 @@ function ContactForm() {
                 id="lastName"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="telephone" className="form-label">
-                Telephone Number
-              </label>
-              <input
-                type="tel"
-                className="form-control"
-                id="telephone"
-                value={telephone}
-                onChange={(e) => setTelephone(e.target.value)}
                 required
               />
             </div>
