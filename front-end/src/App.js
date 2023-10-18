@@ -13,8 +13,8 @@ import AdminProfile from './pages/adminProfile';
 import StudentProfileSetings from './pages/studentProfileSetings';
 import AddNewAdmin from './pages/addNewAdmin';
 import ChemStore from './pages/store/chemicalStore';
-import AddChemical from './pages/addNewChemical';
-import AddConsumable from './pages/addNewConsumable';
+import AddChemical from './pages/store/addNewChemical';
+import AddConsumable from './pages/store/addNewConsumable';
 import ConStore from './pages/store/consumableStore';
 import WelcomeStore from './pages/store/welcomeStore';
 
