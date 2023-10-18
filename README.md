@@ -39,6 +39,12 @@ ___
 <img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/4a0683ca-76d1-458e-9917-7c73774c82d3" />
 <img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/ad697f5b-3063-4a72-951b-1320c87db516" />
 
+___
+
+## Use Case Diagram
+
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/0ee4075d-65d2-4ecc-90ac-6b889f2dbf6d" />
+
 
 
 
