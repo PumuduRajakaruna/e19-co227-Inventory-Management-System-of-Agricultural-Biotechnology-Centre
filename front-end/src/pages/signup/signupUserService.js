@@ -22,7 +22,7 @@ class SignupUserService {
         // You can handle the response data as needed
         return responseData;
       } catch (error) {
-        throw new Error('Signup failed: ' + error.message);
+        throw new Error('Signup failed: ' + error.response.status === 400);
       }
     }
   }

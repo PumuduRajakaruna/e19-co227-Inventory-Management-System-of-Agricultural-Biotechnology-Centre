@@ -76,6 +76,7 @@ function App() {
             ))}
           </tbody>
         </table>
+        <p>*Solid chemical masses are denoted in grams, while liquid volumes are expressed in milliliters</p>
       </div>
 
       {showUpdateForm && (

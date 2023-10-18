@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Form, Button, Card } from 'react-bootstrap';
+import { Container, Form, Button, Card, Image, Row, Col } from 'react-bootstrap';
 import SigninAllService from './signinAllServices';
 import { useNavigate } from 'react-router-dom';
+import ProfilePictureLogo from '../signup/UOPlogo.png';
 import axios from 'axios';
-// import Signinlogo from './SigninLogo.png';
-// import Loader from '../Loader';
 
 
 function Signin() {
@@ -125,52 +124,41 @@ function Signin() {
   };
 
   return (
-    <>
-    { (<>
-    <div className='body d-flex justify-content-center align-items-center'>
+    <div className="signin-container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
       <Container>
-        <div className='d-flex justify-content-center'>
-          <Card className="shadow col-md-4">
-            <Card.Body>
-              <h2 className='fs-2 d-flex justify-content-center'>
-                <img  alt=''  style={{ width: '150px', height: 'auto' }} className='img-fluid' />
-              </h2>
-              <pre></pre>
-              <section className='section bg-c-light border-top border-bottom'>
-                <div className='container'>
-                  <div className='row'>
-                    <div className='col-md-12'>
-                      <Form>
-                        <Form.Group className="mb-3" controlId="formBasicUsername">
-                          <Form.Label>Username</Form.Label>
-                          <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleFormChange} required />
-                        </Form.Group>
-                      <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Password" onChange={handleFormChange} required />
-                      </Form.Group>
-                      <div className="d-flex justify-content-center">
-                        <Button variant="primary" type="button" className="me-5 btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
-                          Sign in
-                        </Button>
-                        <Button variant="primary" type="button" onClick={handleBack} className="btn-light btn-outline-primary">
-                          Back
-                        </Button>
-                      </div>
-                    </Form>
-                    <pre></pre>
-                  </div>
+        <Row className="justify-content-center">
+          <Col xs={12} md={6} lg={4}>
+            <Card className="shadow">
+              <Card.Body>
+                <div className="text-center mb-4">
+                  <Image src={ProfilePictureLogo} alt="Profile Logo" roundedCircle style={{ width: '150px' }} />
                 </div>
-              </div>
-            </section>
-          </Card.Body>
-        </Card>
-        </div>
+                <section className="bg-c-light border-top border-bottom">
+                  <Form>
+                    <Form.Group className="mb-3" controlId="formBasicUsername">
+                      <Form.Label>Username</Form.Label>
+                      <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleFormChange} required />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control type="password" name="password" placeholder="Password" onChange={handleFormChange} required />
+                    </Form.Group>
+                    <div className="d-flex justify-content-center">
+                      <Button variant="primary" type="button" className="me-5 btn-light btn-outline-primary" onClick={handleSubmit} disabled={!isFormFilled}>
+                        Sign in
+                      </Button>
+                      <Button variant="primary" type="button" onClick={handleBack} className="btn-light btn-outline-primary">
+                        Back
+                      </Button>
+                    </div>
+                  </Form>
+                </section>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Container>
     </div>
-    </>)}
-    </>
   );
 }
-
 export default Signin;

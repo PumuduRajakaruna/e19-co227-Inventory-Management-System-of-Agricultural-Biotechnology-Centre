@@ -69,6 +69,7 @@ function UserSignup() {
       console.log(responseData);
     } catch (error) {
       console.error('Signup failed:', error.message);
+      alert('Signup Failed',error.message);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,12 +12,10 @@ function ContactForm() {
 
   const storedUser = JSON.parse(sessionStorage.getItem('user'));
   const username = storedUser.username;
-  console.log('username:', username);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the user ID when the component mounts
     const fetchUserId = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/v1/user/getByUsername/${username}`);
@@ -35,9 +33,10 @@ function ContactForm() {
     fetchUserId();
   }, [username]);
 
-  console.log('userId:', userId);
+  const handleDepartmentChange = (e) => {
+    setDepartment(e.target.value);
+  };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -139,14 +138,18 @@ function ContactForm() {
               <label htmlFor="department" className="form-label">
                 Department
               </label>
-              <input
-                type="text"
+              <select
                 className="form-control"
                 id="department"
                 value={department}
-                onChange={(e) => setDepartment(e.target.value)}
+                onChange={handleDepartmentChange}
                 required
-              />
+              >
+                <option value="">Select Department</option>
+                <option value="Agricultural Technology Management">Agricultural Technology Management</option>
+                <option value="Animal Science">Animal Science</option>
+                <option value="Food Science">Food Science</option>
+              </select>
             </div>
             <button type="submit" className="btn btn-primary">
               Submit

@@ -174,6 +174,8 @@ const ChemicalTable = () => {
             ))}
           </tbody>
         </table>
+        <p>*Solid chemical masses are denoted in grams, while liquid volumes are expressed in milliliters</p>
+
 
         <h2>Lab Consumables Table</h2>
         <table className="table">
