@@ -52,7 +52,10 @@ Our web platform is set to revolutionize the management of chemical and consumab
 <img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/4a60d079-fe8a-47a9-b017-f1a05be6381a" width=1200 />
 
 ## Relational Mapping
-<img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/d67e0eb4-24e0-41fa-8fd7-35f5d8291110" width=800 />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/ad697f5b-3063-4a72-951b-1320c87db516" />
+
+## Use Case Diagram
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/7f6b441b-dfa4-4d66-91a4-aaab057cbcc8" />
 
 
 ## Tech Stack
