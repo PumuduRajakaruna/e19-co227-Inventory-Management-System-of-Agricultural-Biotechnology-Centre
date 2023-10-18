@@ -23,9 +23,29 @@ ___
 
 <img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/c45114df-491c-4055-92d2-7153f8b45dcd" width=500 />
 
+
 <img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/247848b6-f349-4dad-a33b-40af74134b66" width=500 />
 
 ___
+
+## Overview
+
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/eee6c19e-d9ac-457d-be31-ded4a60a1161" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/f8b0d7c0-30f9-4026-be0d-09c19c3de208" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/8f6b67c7-bb75-479d-b79a-28aa65dcf273" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/681e983b-edd6-4e2b-8577-95a932027122" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/5dbf7b6e-264d-4c3e-967f-26a636c86de4" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/3b08ed11-7423-4b0b-88fa-515df3218986" />
+<img src ="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/4a0683ca-76d1-458e-9917-7c73774c82d3" />
+
+
+
+
+
+
+
+
+
 
 
 
