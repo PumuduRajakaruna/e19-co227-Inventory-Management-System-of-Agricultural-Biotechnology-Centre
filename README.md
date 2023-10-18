@@ -1,5 +1,5 @@
 ___
-# INVENTORY MANAGMENT SYSTEM OF AGRICULTURAL BIOTECHNOLOGY CENTRE
+# INVENTORY MANAGMENT SYSTEM OF AGRICULTURAL BIOTECHNOLOGY CENTRE 
 ___
 
 ## Introduction
@@ -16,6 +16,9 @@ Additionally, another issue is the difficulty in locating chemicals. Without pre
 
 ### Solution 💡
 Our web platform is set to revolutionize the management of chemical and consumable resources within our academic setting. Students can effortlessly log their chemical usage, providing real-time updates, while technical officers gain insights into remaining quantities. Our innovative alert system notify officers as quantities approach predefined levels, ensuring timely restocking. Urgent alerts signal excessive consumption, prompting swift action. Additionally, a user-friendly search feature simplify tracking chemicals and their locations. By centralizing labs and streamlining documentation, our platform eliminates paperwork, saving time and offering comprehensive solutions for efficient inventory management.
+
+___
+
 
 ## ER Diagram
 <img src="https://github.com/cepdnaclk/e19-co227-Inventory-Management-System-of-Agricultural-Biotechnology-Centre/assets/115540884/4a60d079-fe8a-47a9-b017-f1a05be6381a" width=1200 />
